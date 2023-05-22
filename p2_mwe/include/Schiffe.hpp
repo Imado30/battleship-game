@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <vector>
+#include <string>
 
 using namespace std;
 namespace SchiffeVersenken
@@ -10,7 +11,8 @@ namespace SchiffeVersenken
     public:
         Schiffe();
         void schiffe_platzieren();
-        void koordinaten_einfügen();
+        void koordinaten_einfügen(int a, int x, int y, string richtung);
+        void reset();
 
     private:
         vector<int> Schiffgrößen;
