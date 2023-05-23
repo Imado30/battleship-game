@@ -23,4 +23,11 @@ namespace SchiffeVersenken{
         opview.set_value(x,y,value);
     }
 
+    SpielBrett& Spieler::get_own_sb(){
+        return own_sb;
+    }
+
+    void Spieler::set_ene_sb(SpielBrett& ensb){
+        ene_sb=ensb;
+    }
 }

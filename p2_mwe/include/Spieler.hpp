@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include "/home/odin/Projekt2/p2_mwe/include/Spielbrett.hpp"
 
 namespace SchiffeVersenken{
 
@@ -11,16 +12,20 @@ namespace SchiffeVersenken{
 
         void markieren(int x, int y, std::string value);
 
+        SpielBrett& get_own_sb();
+
+        void set_ene_sb(SpielBrett& ensb);
+
     private:
         std::string name;
 
         size_t id;
 
-        Spielbrett own_sb;
+        SpielBrett own_sb;
 
-        Spielbrett ene_sb;
+        SpielBrett ene_sb;
 
-        Spielbrett opview;
+        SpielBrett opview;
     };
 
 }
