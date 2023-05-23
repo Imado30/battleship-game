@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <tuple>
 
 using namespace std;
 namespace SchiffeVersenken
@@ -11,12 +12,12 @@ namespace SchiffeVersenken
     public:
         Schiffe();
         void schiffe_platzieren();
-        void koordinaten_einfügen(int a, int x, int y, string richtung);
+        void koordinaten_einfügen(int a, int x, int y, string one_direction);
         void reset();
 
     private:
         vector<int> Schiffgrößen;
-        vector<int> Koordinaten;
+        vector<std::tuple<int,int>> Koordinaten;
         vector<int> Schiffgrößen2;
     };
 }

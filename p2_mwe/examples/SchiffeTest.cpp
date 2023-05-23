@@ -6,7 +6,7 @@
 using namespace SchiffeVersenken;
 
 int main() 
-{
+{ 
     Schiffe s;
     try
     {
