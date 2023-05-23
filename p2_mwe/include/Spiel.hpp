@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
-#include "/home/odin/Projekt2/p2_mwe/include/Spieler.hpp"
+//#include "/home/odin/Projekt2/p2_mwe/include/Spieler.hpp"
+#include "../include/Spieler.hpp"
+
 
 namespace SchiffeVersenken{
 

@@ -1,7 +1,9 @@
 #include <vector>
 #include <string>
 #include <iostream>
-#include "/home/odin/Projekt2/p2_mwe/include/Spielbrett.hpp"
+//#include "/home/odin/Projekt2/p2_mwe/include/Spielbrett.hpp"
+#include "../include/Spielbrett.hpp"
+
 using namespace std;
 
 namespace SchiffeVersenken {

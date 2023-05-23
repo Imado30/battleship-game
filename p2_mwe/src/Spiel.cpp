@@ -1,4 +1,6 @@
-#include "/home/odin/Projekt2/p2_mwe/include/Spiel.hpp"
+//#include "/home/odin/Projekt2/p2_mwe/include/Spiel.hpp"
+#include "../include/Spiel.hpp"
+
 #include <iostream>
 
 namespace SchiffeVersenken{
