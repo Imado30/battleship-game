@@ -26,9 +26,9 @@ find_package(pybind11 REQUIRED)
 ## Baue Programme ##
 
 # Baue das Programm 'demo1' aus den genannten Quelldateien
-file(GLOB SRC_FILES ${PROJECT_SOURCE_DIR}/src/*.cpp)
+file(GLOB SRC_FILES ${PROJECT_SOURCE_DIR}/src/.cpp)
 add_executable(demo1
-  examples/demo1.cpp
+  examples/Spielertest.cpp
   ${SRC_FILES}
 )
 

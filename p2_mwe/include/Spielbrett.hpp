@@ -12,10 +12,9 @@ public:
     std::string Feld[10][10];
 
     void druckeSpielbrett();
-    void set_value(int x, int y, string s);
+    void set_value(int x, int y, std::string s);
     bool hit(int x, int y);
-    void setzeSchiff(int x, int y);
-    void loescheSchiff(int x, int y);
+    
 };
 
 }
