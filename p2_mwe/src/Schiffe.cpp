@@ -15,6 +15,18 @@ namespace SchiffeVersenken
         Schiffgrößen.push_back(2);
     }
 
+    void Schiffe::reset()
+    {
+        for (int i = 0; i < Schiffgrößen2.size(); i++)
+        {
+            Schiffgrößen.push_back(Schiffgrößen2[i]);
+        }
+        for (int i = 0; i < Schiffgrößen2.size(); i++)
+        {
+            Schiffgrößen2.pop_back();
+        }
+    }
+
     void Schiffe::schiffe_platzieren()
     {
         while (Schiffgrößen.size() != 0)
@@ -54,14 +66,29 @@ namespace SchiffeVersenken
                     int x_koordinate;
                     int y_koordinate;
                     string richtung;
-                    cout << "Gib die x-Koordinate ein für Schiff Größe " << eingabe << endl;
+
+                    cout << "Gib die x-Koordinate ein für Schiff Größe: " << eingabe << endl;
                     cin >> x_koordinate;
-                    cout << "Gib die y-Koordinate ein für Schiff Größe " << eingabe << endl;
+                    if (x_koordinate < 0 || x_koordinate > 9)
+                    {
+                        throw std::invalid_argument("Eingegebenes Element ist nicht auf der x-Achse (0 - 9)");
+                    }
+
+                    cout << "Gib die y-Koordinate ein für Schiff Größe: " << eingabe << endl;
                     cin >> y_koordinate;
+                    if (y_koordinate < 0 || y_koordinate > 9)
+                    {
+                        throw std::invalid_argument("Eingegebenes Element ist nicht auf der y-Achse (0 - 9)");
+                    }
+                    
                     cout << "gib h für horizontal und v für vertikal ein " << endl;
                     cin >> richtung;
-
-                    //Schiffe::koordinaten_einfügen(eingabe, x_koordinate, y_koordinate, richtung);
+                    if (richtung != "h" && richtung != "v")
+                    {
+                        throw std::invalid_argument("Eingegebenes Element ist weder h (horizontal) noch v (vertikal)");
+                    }
+                    
+                    Schiffe::koordinaten_einfügen(eingabe, x_koordinate, y_koordinate, richtung);
 
                     //Die Eingabe wird durch Positionen tauschen im Array aus Schiffgrößen entfernt und in anderes Array eingefügt
                     for (int i = 0; i < Schiffgrößen.size(); i++)
@@ -88,10 +115,15 @@ namespace SchiffeVersenken
                     throw std::invalid_argument ("Eingegebenes Element gehört nicht zu den Schiffsgrößen");
                 }
             }
-            /*else 
+            else 
             {
                 Schiffe::reset();
-            }*/
+            }
         }
+    }
+
+    void Schiffe::koordinaten_einfügen(int a, int x, int y, string richtung)
+    {
+        
     }
 }

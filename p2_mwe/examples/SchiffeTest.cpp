@@ -14,6 +14,6 @@ int main()
     }
     catch (const std::invalid_argument e)
     {
-        cout << "Ausnahme '" << e.what() << "' behandelt" << endl;
+        cout << "ERROR: '" << e.what() << "'" << endl;
     }
 }
