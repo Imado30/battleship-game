@@ -63,7 +63,7 @@ namespace SchiffeVersenken
 
                     //Schiffe::koordinaten_einfügen(eingabe, x_koordinate, y_koordinate, richtung);
 
-                    //Die Eingabe wird aus Schiffgrößen entfernt und in anderes Array eingefügt
+                    //Die Eingabe wird durch Positionen tauschen im Array aus Schiffgrößen entfernt und in anderes Array eingefügt
                     for (int i = 0; i < Schiffgrößen.size(); i++)
                     {
                         if (Schiffgrößen[i] == eingabe)
