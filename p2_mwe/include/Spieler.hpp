@@ -14,9 +14,9 @@ namespace SchiffeVersenken{
         void markieren(int Koord1, int Koord2);
 
     private:
-        std::string Name;
+        std::string name;
 
-        int ID;
+        size_t id;
     };
 
 }
