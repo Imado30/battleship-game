@@ -3,6 +3,7 @@
 #include "../include/Spielbrett.hpp"
 //#include "/home/odin/Projekt2/p2_mwe/include/Spielbrett.hpp"
 #include <string>
+#include <memory>
 
 namespace SchiffeVersenken{
 
@@ -14,9 +15,9 @@ namespace SchiffeVersenken{
 
         void markieren(int x, int y, std::string value);
 
-        SpielBrett& get_own_sb();
+        std::shared_ptr<SpielBrett> get_own_sb();
 
-        void set_ene_sb(SpielBrett& ensb);
+        void set_ene_sb(std::shared_ptr<SpielBrett> ensb);
 
     private:
         std::string name;
@@ -25,9 +26,9 @@ namespace SchiffeVersenken{
 
         SpielBrett own_sb;
 
-        SpielBrett ene_sb;
-
         SpielBrett opview;
+
+        std::shared_ptr<SpielBrett> ene_sb;
     };
 
 }

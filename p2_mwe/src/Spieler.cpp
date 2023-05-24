@@ -12,7 +12,7 @@ namespace SchiffeVersenken{
     }
 
     void Spieler::Schießen(int x, int y){
-        if (ene_sb.hit(x, y)){
+        if (ene_sb->hit(x, y)){
             markieren(x,y,"X");
             return;
         }
@@ -20,16 +20,16 @@ namespace SchiffeVersenken{
     }
 
     void Spieler::markieren(int x,int y, std::string value){
-        ene_sb.set_value(x,y,value);
+        ene_sb->set_value(x,y,value);
         own_sb.set_value(x,y,value);
         opview.set_value(x,y,value);
     }
 
-    SpielBrett& Spieler::get_own_sb(){
-        return own_sb;
+    std::shared_ptr<SpielBrett> Spieler::get_own_sb(){
+        return std::make_shared<SpielBrett>(own_sb);
     }
 
-    void Spieler::set_ene_sb(SpielBrett& ensb){
+    void Spieler::set_ene_sb(std::shared_ptr<SpielBrett> ensb){
         ene_sb=ensb;
     }
 }
