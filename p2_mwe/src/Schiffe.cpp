@@ -19,47 +19,41 @@ namespace SchiffeVersenken
     void Schiffe::reset()
     {
         for (int i = 0; i < Schiffgrößen2.size(); i++)
-        {
             Schiffgrößen.push_back(Schiffgrößen2[i]);
-        }
+        
         for (int i = 0; i < Schiffgrößen2.size(); i++)
-        {
             Schiffgrößen2.pop_back();
-        }
     }
 
     void Schiffe::koordinaten_einfügen(int a, int x, int y, string direction)
     {
-        if (direction == "r")
+        if (direction == "h")
         {
-            vector<tuple<int,int>> überschneiden_array;
+            // Es wird überprüft, ob sich Schiffe überschneiden
+            vector<tuple<int, int>> überschneiden_array;
             for (int i = 0; i < a; i++)
             {
-                tuple<int, int> überschneiden(x+i, y);
+                tuple<int, int> überschneiden(x + i, y);
                 überschneiden_array.push_back(überschneiden);
             }
 
             for (const auto &tupel : Koordinaten)
             {
-                for (const auto& tupel2 : überschneiden_array)
-                {
+                for (const auto &tupel2 : überschneiden_array)
                     if (tupel2 == tupel)
-                    {
                         throw invalid_argument("Schiff kann nicht eingefügt werden, da sich die Schiffe sonst kreuzen");
-                    }
-                }
             }
 
+            // Es wird überprüft, ob das Schiff das Spielfeld überschreitet
             if (x + a > 9)
-            {
                 throw std::invalid_argument("Schiff kann nicht in die Koordinate eingefügt werden. Das Schiff überschreitet sonst das Spielfeld");
-            }
 
+            // Ansonsten werden die Koordinaten in das Koordinaten Array eingefügt
             else
             {
                 for (int i = 0; i < a; i++)
                 {
-                    std::tuple<int, int> schiff(x+i, y);
+                    std::tuple<int, int> schiff(x + i, y);
                     Koordinaten.push_back(schiff);
                 }
             }
@@ -67,28 +61,22 @@ namespace SchiffeVersenken
 
         else if (direction == "v")
         {
-            vector<tuple<int,int>> überschneiden_array2;
+            vector<tuple<int, int>> überschneiden_array2;
             for (int i = 0; i < a; i++)
             {
-                tuple<int, int> überschneiden2(x, y+i);
+                tuple<int, int> überschneiden2(x, y + i);
                 überschneiden_array2.push_back(überschneiden2);
             }
 
             for (const auto &tupel : Koordinaten)
             {
-                for (const auto& tupel2 : überschneiden_array2)
-                {
+                for (const auto &tupel2 : überschneiden_array2)
                     if (tupel2 == tupel)
-                    {
                         throw invalid_argument("Schiff kann nicht eingefügt werden, da sich die Schiffe sonst kreuzen");
-                    }
-                }
             }
 
             if (y + a > 9)
-            {
                 throw std::invalid_argument("Schiff kann nicht in die Koordinate eingefügt werden. Das Schiff überschreitet sonst das Spielfeld");
-            }
 
             else
             {
@@ -144,24 +132,21 @@ namespace SchiffeVersenken
 
                     cout << "Gib die x-Koordinate ein für Schiff Größe: " << eingabe << endl;
                     cin >> x_koordinate;
+
                     if (x_koordinate < 0 || x_koordinate > 9)
-                    {
                         throw std::invalid_argument("Eingegebenes Element ist nicht auf der x-Achse (0 - 9)");
-                    }
 
                     cout << "Gib die y-Koordinate ein für Schiff Größe: " << eingabe << endl;
                     cin >> y_koordinate;
+
                     if (y_koordinate < 0 || y_koordinate > 9)
-                    {
                         throw std::invalid_argument("Eingegebenes Element ist nicht auf der y-Achse (0 - 9)");
-                    }
 
                     cout << "gib h für horizontal und v für vertikal ein " << endl;
                     cin >> richtung;
+
                     if (richtung != "h" && richtung != "v")
-                    {
                         throw std::invalid_argument("Eingegebenes Element ist weder h (horizontal) noch v (vertikal)");
-                    }
 
                     try
                     {
@@ -187,21 +172,15 @@ namespace SchiffeVersenken
 
                             // überprüfen Array muss geleert werden
                             for (int i = 0; i < überprüfen.size(); i++)
-                            {
                                 überprüfen.pop_back();
-                            }
                         }
                     }
                 }
                 else
-                {
                     throw std::invalid_argument("Eingegebenes Element gehört nicht zu den Schiffsgrößen");
-                }
             }
             else
-            {
                 Schiffe::reset();
-            }
         }
     }
 }
