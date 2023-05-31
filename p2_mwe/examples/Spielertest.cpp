@@ -1,6 +1,3 @@
-//#include "/home/odin/Projekt2/p2_mwe/include/Spiel.hpp"
-//#include "/home/odin/Projekt2/p2_mwe/include/Spieler.hpp"
-//#include "/home/odin/Projekt2/p2_mwe/include/Spielbrett.hpp"
 #include "../include/Spieler.hpp"
 #include "../include/Spiel.hpp"
 #include "../include/Spielbrett.hpp"
@@ -8,12 +5,14 @@
 #include "../src/Spiel.cpp"
 #include "../src/Spielbrett.cpp"
 
-
+//cmake -S. -B build
+//cmake --build build
+// ./build/Spielertest.cpp
 
 int main(){
 
-    SchiffeVersenken::Spieler a("Christoph");
-    SchiffeVersenken::Spieler b("Sangria");
+    SchiffeVersenken::Spieler a("A");
+    SchiffeVersenken::Spieler b("B");
 
     SchiffeVersenken::Spiel x(a,b);
 
@@ -22,6 +21,6 @@ int main(){
     a.Schießen(1,2);
     a.Schießen(2,3);
 
-    b.get_own_sb()->druckeSpielbrett();
-    a.get_own_sb()->druckeSpielbrett();
+    //b.get_own_sb()->druckeSpielbrett();
+    //a.get_own_sb()->druckeSpielbrett();
 }
