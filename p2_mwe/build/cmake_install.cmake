@@ -43,25 +43,25 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xpythonx" OR NOT CMAKE_INSTALL_COMPONENT)
-  if(EXISTS "$ENV{DESTDIR}/home/odin/Projekt2/p2_mwe/extra/hangman.cpython-310-x86_64-linux-gnu.so" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/home/odin/Projekt2/p2_mwe/extra/hangman.cpython-310-x86_64-linux-gnu.so")
+  if(EXISTS "$ENV{DESTDIR}/home/odin/Projekt2/p2_mwe/extra/schiffeversenken.cpython-310-x86_64-linux-gnu.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/home/odin/Projekt2/p2_mwe/extra/schiffeversenken.cpython-310-x86_64-linux-gnu.so")
     file(RPATH_CHECK
-         FILE "$ENV{DESTDIR}/home/odin/Projekt2/p2_mwe/extra/hangman.cpython-310-x86_64-linux-gnu.so"
+         FILE "$ENV{DESTDIR}/home/odin/Projekt2/p2_mwe/extra/schiffeversenken.cpython-310-x86_64-linux-gnu.so"
          RPATH "")
   endif()
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/odin/Projekt2/p2_mwe/extra/hangman.cpython-310-x86_64-linux-gnu.so")
+   "/home/odin/Projekt2/p2_mwe/extra/schiffeversenken.cpython-310-x86_64-linux-gnu.so")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/home/odin/Projekt2/p2_mwe/extra" TYPE MODULE FILES "/home/odin/Projekt2/p2_mwe/build/hangman.cpython-310-x86_64-linux-gnu.so")
-  if(EXISTS "$ENV{DESTDIR}/home/odin/Projekt2/p2_mwe/extra/hangman.cpython-310-x86_64-linux-gnu.so" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/home/odin/Projekt2/p2_mwe/extra/hangman.cpython-310-x86_64-linux-gnu.so")
+  file(INSTALL DESTINATION "/home/odin/Projekt2/p2_mwe/extra" TYPE MODULE FILES "/home/odin/Projekt2/p2_mwe/build/schiffeversenken.cpython-310-x86_64-linux-gnu.so")
+  if(EXISTS "$ENV{DESTDIR}/home/odin/Projekt2/p2_mwe/extra/schiffeversenken.cpython-310-x86_64-linux-gnu.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/home/odin/Projekt2/p2_mwe/extra/schiffeversenken.cpython-310-x86_64-linux-gnu.so")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/home/odin/Projekt2/p2_mwe/extra/hangman.cpython-310-x86_64-linux-gnu.so")
+      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/home/odin/Projekt2/p2_mwe/extra/schiffeversenken.cpython-310-x86_64-linux-gnu.so")
     endif()
   endif()
 endif()

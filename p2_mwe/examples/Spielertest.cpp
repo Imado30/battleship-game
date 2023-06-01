@@ -1,9 +1,9 @@
 #include "../include/Spieler.hpp"
 #include "../include/Spiel.hpp"
 #include "../include/Spielbrett.hpp"
-#include "../src/Spieler.cpp"
-#include "../src/Spiel.cpp"
-#include "../src/Spielbrett.cpp"
+//#include "../src/Spieler.cpp"
+//#include "../src/Spiel.cpp"
+//#include "../src/Spielbrett.cpp"
 
 //cmake -S. -B build
 //cmake --build build

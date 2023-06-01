@@ -31,4 +31,8 @@ namespace SchiffeVersenken{
     void Spieler::set_ene_sb(std::shared_ptr<SpielBrett> ensb){
         ene_sb=ensb;
     }
+
+    int Spieler::get_id(){
+        return id;
+    }
 }

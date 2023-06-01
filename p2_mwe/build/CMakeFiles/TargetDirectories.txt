@@ -1,5 +1,5 @@
 /home/odin/Projekt2/p2_mwe/build/CMakeFiles/demo1.dir
-/home/odin/Projekt2/p2_mwe/build/CMakeFiles/hangman.dir
+/home/odin/Projekt2/p2_mwe/build/CMakeFiles/schiffeversenken.dir
 /home/odin/Projekt2/p2_mwe/build/CMakeFiles/edit_cache.dir
 /home/odin/Projekt2/p2_mwe/build/CMakeFiles/rebuild_cache.dir
 /home/odin/Projekt2/p2_mwe/build/CMakeFiles/list_install_components.dir

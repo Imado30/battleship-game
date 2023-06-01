@@ -3,8 +3,8 @@
 # Minimale Version des Buildsystems
 cmake_minimum_required(VERSION 3.14)
 # Name des Projekts
-project(Hangman)
-
+# project(Hangman)
+project(SchiffeVersenken)
 ## Optionen ##
 
 # Setzte verwendeten C++-Standard auf C++17
@@ -26,18 +26,18 @@ find_package(pybind11 REQUIRED)
 ## Baue Programme ##
 
 # Baue das Programm 'demo1' aus den genannten Quelldateien
-file(GLOB SRC_FILES ${PROJECT_SOURCE_DIR}/src/.cpp)
+file(GLOB SRC_FILES ${PROJECT_SOURCE_DIR}/src/*.cpp)
 add_executable(demo1
   examples/Spielertest.cpp
   ${SRC_FILES}
 )
 
-pybind11_add_module(hangman
-  examples/demo_pybind.cpp
+pybind11_add_module(schiffeversenken
+  examples/versenken_pybind.cpp
   ${SRC_FILES}
 )
 
 ## Installiere die Bibliothek
-install(TARGETS hangman
+install(TARGETS schiffeversenken
   COMPONENT python
-  LIBRARY DESTINATION "${PROJECT_SOURCE_DIR}/extra")
+  LIBRARY DESTINATION ${PROJECT_SOURCE_DIR}/extra)

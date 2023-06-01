@@ -145,7 +145,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=Hangman
+CMAKE_PROJECT_NAME:STATIC=SchiffeVersenken
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -226,6 +226,15 @@ PYTHON_EXECUTABLE:FILEPATH=/usr/bin/python3.10
 
 //Path to a library.
 PYTHON_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libpython3.10.so
+
+//Value Computed by CMake
+SchiffeVersenken_BINARY_DIR:STATIC=/home/odin/Projekt2/p2_mwe/build
+
+//Value Computed by CMake
+SchiffeVersenken_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+SchiffeVersenken_SOURCE_DIR:STATIC=/home/odin/Projekt2/p2_mwe
 
 //The directory containing a CMake configuration file for pybind11.
 pybind11_DIR:PATH=/usr/lib/cmake/pybind11

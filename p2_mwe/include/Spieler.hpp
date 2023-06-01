@@ -37,6 +37,8 @@ namespace SchiffeVersenken{
          */
         void set_ene_sb(std::shared_ptr<SpielBrett> ensb);
 
+        int get_id();
+
     private:
         /**
          * @brief Hilfsfunktion zur Darstellung aller Schüsse auf den jeweiligen Spielbrettern
