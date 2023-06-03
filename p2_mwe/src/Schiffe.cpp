@@ -46,6 +46,58 @@ namespace SchiffeVersenken
                     if (tupel2 == tupel)
                     {
                         throw invalid_argument("Schiff kann nicht eingefügt werden, da sich die Schiffe sonst kreuzen");
+                        /*
+                        while(tupel2 == tupel)
+                        {
+                        cout << "Schiff kann nicht eingefügt werden, da sich die Schiffe sonst kreuzen" << endl;
+
+                        int neux;
+                        int neuy;
+                        string neud;
+
+                        cout << "Gib eine neue x-Koordinate an " << endl;
+                        cin >> neux;
+
+                        if (neux < 0 || neux > 9)
+                        {
+                            while (neux < 0 || neux > 9)
+                            {
+                                cout << "Eingegebenes Element ist nicht auf der x-Achse (0 - 9). Gebe eine neue Eingabe ein" << endl;
+                                cin >> neux;
+                            }
+                        }
+
+                        cout << "Gib eine neue y-Koordinate an " << endl;
+                        cin >> neuy;
+
+                        if (neuy < 0 || neuy > 9)
+                        {
+                            while (neuy < 0 || neuy > 9)
+                            {
+                                cout << "Eingegebenes Element ist nicht auf der y-Achse (0 - 9). Gebe eine neue Eingabe ein" << endl;
+                                cin >> neuy;
+                            }
+                        }
+
+                        cout << "Gib entweder h (für horizontal) oder v (für vertikal) ein" << endl;
+                        cin >> neud;
+
+                    if (neud != "h" && neud != "v")
+                    {
+                        while (neud != "h" && neud != "v")
+                        {
+                            cout << "Eingegebenes Element ist weder h (horizontal) noch v (vertikal). Gebe entweder v oder h ein" << endl;
+                            cin >> neud;
+                        }
+                    }
+
+                        koordinaten_einfügen(a, neux, neuy, neud);
+
+                        for (int i = 0; i < a; i++)
+                        {
+                            überschneiden_array.pop_back();
+                        }
+                        }*/
                     }
                 }
             }
@@ -62,12 +114,38 @@ namespace SchiffeVersenken
                 cout << "Gib ein neues x ein" << endl;
                 cin >> neu_x;
 
+                if (neu_x < 0 || neu_x > 9)
+                {
+                    while (neu_x < 0 || neu_x > 9)
+                    {
+                        cout << "Eingegebenes Element ist nicht auf der x-Achse (0 - 9). Gebe eine neue Eingabe ein" << endl;
+                        cin >> neu_x;
+                    }
+                }
+
                 cout << "Gib ein neues y ein" << endl;
                 cin >> neu_y;
+
+                if (neu_y < 0 || neu_y > 9)
+                {
+                    while (neu_y < 0 || neu_y > 9)
+                    {
+                        cout << "Eingegebenes Element ist nicht auf der y-Achse (0 - 9). Gebe eine neue Eingabe ein" << endl;
+                        cin >> neu_y;
+                    }
+                }
 
                 cout << "Gebe eine neue Richtung an (h für horizontal und v für vertikal)" << endl;
                 cin >> neu_d;
 
+                if (neu_d != "h" && neu_d != "v")
+                {
+                    while (neu_d != "h" && neu_d != "v")
+                    {
+                        cout << "Eingegebenes Element ist weder h (horizontal) noch v (vertikal). Gebe entweder v oder h ein" << endl;
+                        cin >> neu_d;
+                    }
+                }
                 Schiffe::koordinaten_einfügen(a, neu_x, neu_y, neu_d);
             }
 
@@ -80,7 +158,7 @@ namespace SchiffeVersenken
                     Koordinaten.push_back(schiff);
                 }
                 SpielBrett sb;
-                for (tuple<int,int> tupel : Koordinaten)
+                for (tuple<int, int> tupel : Koordinaten)
                 {
                     sb.setzeSchiff(tupel);
                 }
@@ -142,7 +220,7 @@ namespace SchiffeVersenken
 
                 cout << "Gebe eine neue Richtung an (h für horizontal und v für vertikal)" << endl;
                 cin >> neu_d;
-    
+
                 if (neu_d != "h" && neu_d != "v")
                 {
                     while (neu_d != "h" && neu_d != "v")
@@ -162,7 +240,7 @@ namespace SchiffeVersenken
                     Koordinaten.push_back(schiff);
                 }
                 SpielBrett sb;
-                for (tuple<int,int> tupel : Koordinaten)
+                for (tuple<int, int> tupel : Koordinaten)
                 {
                     sb.setzeSchiff(tupel);
                 }
@@ -173,8 +251,12 @@ namespace SchiffeVersenken
 
     void Schiffe::schiffe_platzieren()
     {
-        SpielBrett l;
-        l.druckeSpielbrett();
+        SpielBrett sb;
+        for (tuple<int, int> tupel : Koordinaten)
+        {
+            sb.setzeSchiff(tupel);
+        }
+        sb.druckeSpielbrett();
 
         while (Schiffgrößen.size() != 0)
         {
@@ -273,7 +355,7 @@ namespace SchiffeVersenken
                             Schiffgrößen[Schiffgrößen.size()] = current_element;
                             Schiffgrößen.pop_back();
 
-                            // überprüfen Array muss geleert werden
+                            // überprüfen-Array muss geleert werden
                             for (int i = 0; i < überprüfen.size(); i++)
                                 überprüfen.pop_back();
                         }
