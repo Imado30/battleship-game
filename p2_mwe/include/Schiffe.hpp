@@ -17,12 +17,6 @@ namespace SchiffeVersenken
         Schiffe();
 
         /**
-         * @brief Es werden nacheinander einzelne Schiffe mit verschiedenen Schiffgrößen platziert
-         * 
-         */
-        void schiffe_platzieren();
-
-        /**
          * @brief Die eingegebenen Koordinaten werden überprüft ob sie valide sind und dann im Koordinaten Array Tupel gespeichert
          * 
          * @param a Ist die eingegebene Schiffgröße
@@ -32,25 +26,32 @@ namespace SchiffeVersenken
          */
         void koordinaten_einfügen(int a, int x, int y, string direction);
 
+        std::tuple<int,int> get_tupel(int index);
+
+        /**
+         * @brief Es werden nacheinander einzelne Schiffe mit verschiedenen Schiffgrößen platziert
+         * 
+         */
+        //void schiffe_platzieren();
+
         /**
          * @brief Wenn 0 eingegeben wird, wird alles zurückgesetzt und es kann neu platziert wird
          * 
          */
-        void reset();
-
+        //void reset();
 
     private:
         /**
          * @brief Die festen Schiffgrößen werden hier gespeichert
          * 
          */
-        vector<int> Schiffgrößen;
+        //vector<int> Schiffgrößen;
 
         /**
          * @brief Die schon erstellten und entfernten Schiffe werden für das zurücksetzen hier gespeichert
          * 
          */
-        vector<int> Schiffgrößen2;
+        //vector<int> Schiffgrößen2;
 
         /**
          * @brief Die einzelnen Schiff Koordinaten werden hier gespeichert

@@ -1,3 +1,7 @@
+// uvicorn main:rest_api --port 8000 --reload
+// cmake -S . -B build && cmake --build build && cmake --install build
+// python3 -m uvicorn main:rest_api --port 8000 --reload
+
 #include <pybind11/pybind11.h>
 #include <Schiffe.hpp>
 
@@ -10,6 +14,6 @@ PYBIND11_MODULE(schiffeversenken, m) {
 
     py::class_<Schiffe>(m, "Schiffe")
         .def(py::init<>())
-        .def("schiffe_platzieren", &Schiffe::schiffe_platzieren)
+        .def("get_tupel", &Schiffe::get_tupel)
         .def("koordinaten_einfügen", &Schiffe::koordinaten_einfügen);
 }

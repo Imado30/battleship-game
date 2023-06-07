@@ -1,1 +1,1 @@
-/Users/rafikfarhane/Documents/Uni-Bonn/Praktikum-OOSE/p2_mwe/extra/hangman.cpython-310-darwin.so
+/home/odin/poose_spiel/p2_mwe/extra/schiffeversenken.cpython-310-x86_64-linux-gnu.so

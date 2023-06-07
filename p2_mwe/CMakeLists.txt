@@ -3,7 +3,7 @@
 # Minimale Version des Buildsystems
 cmake_minimum_required(VERSION 3.14)
 # Name des Projekts
-project(Hangman)
+project(SchiffeVersenken)
 
 ## Optionen ##
 
@@ -32,12 +32,12 @@ add_executable(demo1
   ${SRC_FILES}
 )
 
-pybind11_add_module(hangman
-  examples/demo_pybind.cpp
+pybind11_add_module(schiffeversenken
+  examples/versenken_pybind.cpp
   ${SRC_FILES}
 )
 
 ## Installiere die Bibliothek
-install(TARGETS hangman
+install(TARGETS schiffeversenken
   COMPONENT python
-  LIBRARY DESTINATION "${PROJECT_SOURCE_DIR}/extra")
+  LIBRARY DESTINATION ${PROJECT_SOURCE_DIR}/extra)
