@@ -33,4 +33,8 @@ namespace SchiffeVersenken{
 
         return a;        
     }
+
+    Spieler Lobby::get_player1(){
+        return queue[0];
+    }
 }

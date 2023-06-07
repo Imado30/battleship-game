@@ -17,6 +17,8 @@ namespace SchiffeVersenken{
 
             bool waiting(int id);
 
+            Spieler get_player1();
+
         private:
 
             std::vector<Spieler> queue;

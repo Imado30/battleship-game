@@ -11,8 +11,11 @@ namespace SchiffeVersenken{
 
             void spielbretter_verbinden();
 
+            int get_turn();
+
         private:
             Spieler spieler1;
             Spieler spieler2;
+            int turn;
     };
 }

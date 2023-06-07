@@ -212,7 +212,8 @@ CMakeFiles/demo1.dir/examples/Spielertest.cpp.o: ../examples/Spielertest.cpp \
   /usr/include/c++/11/backward/auto_ptr.h \
   /usr/include/c++/11/pstl/glue_memory_defs.h \
   /usr/include/c++/11/pstl/execution_defs.h \
-  ../include/Spiel.hpp
+  ../include/Spiel.hpp \
+  ../include/Lobby.hpp
 
 CMakeFiles/demo1.dir/src/Lobby.cpp.o: ../src/Lobby.cpp \
   /usr/include/stdc-predef.h \
