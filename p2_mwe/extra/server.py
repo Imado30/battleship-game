@@ -14,6 +14,7 @@ import os
 from fastapi import FastAPI
 import uvicorn
 
+#cmake -S . -B build && cmake --build build && cmake --install build
 
 lob = Lobby()
 

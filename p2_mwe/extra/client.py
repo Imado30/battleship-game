@@ -1,7 +1,7 @@
 import requests
 
 name=input("Gib deinen Namen ein: ")
-r=requests.get("http://127.0.0.1:8000/lobby/{name}")
+r=requests.get("http://127.0.0.1:8000/lobby/%s" %name)
 
 r_json=r.json()
 print(r.text)
