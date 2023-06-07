@@ -28,6 +28,10 @@ namespace SchiffeVersenken
 
         std::tuple<int,int> get_tupel(int index);
 
+        bool hit(std::tuple<int,int> koordinate);
+
+        int get_size();
+
         /**
          * @brief Es werden nacheinander einzelne Schiffe mit verschiedenen Schiffgrößen platziert
          * 

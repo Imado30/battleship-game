@@ -24,13 +24,6 @@ rest_api= FastAPI()
 async def wurzel_pfad():
     return{"coole_nachricht" : "Fast API funktioniert"}
 
-"""
-@rest_api.get("/schiffe")
-async def erstelle_schiffe():
-    schiff.schiffe_platzieren()
-    return{"key" : "value"}
-"""
-
 @rest_api.get("/user/{uid}")
 async def get_user_by_id(uid: int):
     return{"user_id" : uid}

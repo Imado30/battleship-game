@@ -35,4 +35,24 @@ namespace SchiffeVersenken
     {
         return Koordinaten[index];
     }
+
+    int Schiffe::get_size()
+    {
+        return Koordinaten.size();
+    }
+
+    bool Schiffe::hit(std::tuple<int,int> koordinate)
+    {
+        for (int i = 0; i < Koordinaten.size(); i++)
+        {
+            if (Koordinaten[i] == koordinate)
+            {
+                Koordinaten.erase(Koordinaten.begin()+i);
+                return true;
+            }
+
+            else 
+                return false;
+        }
+    }
 }
