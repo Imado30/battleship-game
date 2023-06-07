@@ -11,11 +11,10 @@ except ImportError as e:
 
 from schiffeversenken import Schiffe
 import os
-from fastapi import FastAPI
+from fastapi import FastAPI, Query
 import uvicorn
 
 
-#lob = Lobby()
 schiff = Schiffe()
 
 rest_api= FastAPI()
@@ -24,11 +23,17 @@ rest_api= FastAPI()
 async def wurzel_pfad():
     return{"coole_nachricht" : "Fast API funktioniert"}
 
+
+@rest_api.get("/schiffe")
+async def schiffe_platzieren(schiffgröße: int, x: int, y: int, richtung: str):
+   schiff.koordinaten_einfügen(schiffgröße, x, y, richtung)
+   return{"Erfolg" : "Ja"}
+
+"""
 @rest_api.get("/user/{uid}")
 async def get_user_by_id(uid: int):
     return{"user_id" : uid}
 
-"""
 @rest_api.get("/lobby/{name}")
 async def create_player(name: str):
     return{"user_id:" : lob.spieler_erstellen(name).get_id()}

@@ -26,10 +26,28 @@ namespace SchiffeVersenken
          */
         void koordinaten_einfügen(int a, int x, int y, string direction);
 
-        std::tuple<int,int> get_tupel(int index);
-
+        /**
+         * @brief überprüft im die Koordinate getroffen wurde. Wenn true, dann wird die Koordinate aus dem Koordinaten Array entfernt
+         * 
+         * @param koordinate 
+         * @return true 
+         * @return false 
+         */
         bool hit(std::tuple<int,int> koordinate);
 
+        /**
+         * @brief Get the tupel object
+         * 
+         * @param index 
+         * @return std::tuple<int,int> 
+         */
+        std::tuple<int,int> get_tupel(int index);
+
+        /**
+         * @brief Get the size object
+         * 
+         * @return int 
+         */
         int get_size();
 
         /**
