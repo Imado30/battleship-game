@@ -19,6 +19,10 @@ namespace SchiffeVersenken{
 
             Spieler get_player1();
 
+            int spiele_size();
+
+            int queue_size();
+
         private:
 
             std::vector<Spieler> queue;

@@ -27,14 +27,25 @@ namespace SchiffeVersenken{
 
         Spiel a(queue[0],queue[1]);
         queue.erase(queue.begin());
-        queue.erase(queue.begin());
+        queue.erase(queue.begin()+1); //geändert
 
         spiele.push_back(a);
-
+        std::cout << "Spiel erstellt" << std::endl;
         return a;        
     }
 
     Spieler Lobby::get_player1(){
+        if (queue.size()==0){
+            throw std::out_of_range("Die Queue ist leer");
+        }
         return queue[0];
+    }
+
+    int Lobby::spiele_size(){
+        return spiele.size();
+    }
+
+    int Lobby::queue_size(){
+        return queue.size();
     }
 }

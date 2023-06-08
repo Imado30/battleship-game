@@ -34,9 +34,12 @@ async def create_player(name: str):
     return{"user_id" : lob.spieler_erstellen(name).get_id()}
 
 @rest_api.get("/lobby")
-async def get_players():
-    return{"player1" : lob.get_player1().get_id()}
+async def get_queue():
+    return{"q_size" : lob.queue_size()}
 
+@rest_api.get("/spiele")
+async def spiele_size():
+    return{"s_size" : lob.spiele_size()}
 """
 @rest_api.get("/{game}/turn")
 async def get_turn():

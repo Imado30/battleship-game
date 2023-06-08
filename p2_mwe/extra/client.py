@@ -4,22 +4,27 @@ name=input("Gib deinen Namen ein: ")
 r=requests.get("http://127.0.0.1:8000/lobby/%s" %name)
 
 r_json=r.json()
-print(r.text)
-
 my_id=r_json['user_id']
 
-print("Geduld")
+print("Suche nach Spiel...")
 
 waiting=True
 while waiting:
     resp=requests.get("http://127.0.0.1:8000/lobby")
     resp_json=resp.json()
-    a=resp_json['player1']
-    if a!=my_id:
-        waiting=False
-        print("Spiel startet")    
+    a=resp_json['q_size']
 
+    if a==0:
+        waiting=False
+    
+           
+print("Spiel startet")
 Schiffgrößen=[1,2,3,4,5]
+
+re=requests.get("http://127.0.0.1:8000/spiele")
+re_json=re.json()
+spielesize=re_json['s_size']
+print(spielesize)
 
 
 """
