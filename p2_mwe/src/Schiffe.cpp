@@ -55,4 +55,9 @@ namespace SchiffeVersenken
                 return false;
         }
     }
+
+    std::vector<std::tuple<int,int>> Schiffe::get_koordinaten()
+    {
+        return Koordinaten;
+    }
 }

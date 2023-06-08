@@ -50,6 +50,8 @@ namespace SchiffeVersenken
          */
         int get_size();
 
+        std::vector<std::tuple<int,int>> get_koordinaten();
+
         /**
          * @brief Es werden nacheinander einzelne Schiffe mit verschiedenen Schiffgrößen platziert
          * 

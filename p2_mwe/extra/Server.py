@@ -25,9 +25,8 @@ async def wurzel_pfad():
 
 
 @rest_api.get("/schiffe")
-async def schiffe_platzieren(schiffgröße: int, x: int, y: int, richtung: str):
-   schiff.koordinaten_einfügen(schiffgröße, x, y, richtung)
-   return{"Erfolg" : "Ja"}
+async def spieler_koordinaten():
+   return{"Koordinaten" : schiff.get_koordinaten()}
 
 """
 @rest_api.get("/user/{uid}")
