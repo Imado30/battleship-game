@@ -1,8 +1,6 @@
 import requests
 from schiffeversenken import Schiffe
 
-#r = requests.get("http://127.0.0.1:8000/")
-
 s = Schiffe()
 Schiffgrößen=[2,3,4,5,6]
 
@@ -29,6 +27,7 @@ while len(Schiffgrößen) != 0:
         while richtung != "v" and richtung != "h":
             print("Das eingegebene Element ist weder v (vertikal) noch h (horizontal). Gebe entweder v oder h ein")
             richtung = input()
+
 
 
         if richtung == "h":
@@ -100,7 +99,6 @@ while len(Schiffgrößen) != 0:
 
 
         if richtung == "v":
-
             tupelarray = []
             for i in range(0,schiffgröße):
                 tupel = ((x_koordinate+i, y_koordinate))
@@ -110,8 +108,8 @@ while len(Schiffgrößen) != 0:
                     for j in tupelarray:
 
                         while j == s.get_tupel(i):
-                            tupelarray.clear()
 
+                            tupelarray.clear()
                             print("Du kannst das Schiff leider nicht platzieren, da das Schiff sonst ein anderes Schiff überschneidet. Gebe neue Koordinaten an", "\n")
 
                             print("Gebe die x-Koordinate an für die Schiffgröße: ", schiffgröße)
@@ -167,7 +165,6 @@ while len(Schiffgrößen) != 0:
                     richtung = input()
 
         Schiffgrößen.remove(schiffgröße)
-
         s.koordinaten_einfügen(schiffgröße, x_koordinate, y_koordinate, richtung)
         print(s.get_size())
         print(s.get_koordinaten())
@@ -176,5 +173,7 @@ while len(Schiffgrößen) != 0:
         print("Element ist nicht in den Schiffgrößen. Wähle eine der folgenden Schiffgrößen", Schiffgrößen)
 
 
-resp = requests.get("http://127.0.0.1:8000/schiffe")
-resp_json = resp.json()
+for i in s.get_koordinaten():
+    x_koordinate = i[0]
+    y_koordinate = i[1]
+    resp = requests.get("http://127.0.0.1:8000/postkoordinaten/%s/%s"%(x_koordinate, y_koordinate))

@@ -16,6 +16,7 @@ PYBIND11_MODULE(schiffeversenken, m) {
         .def(py::init<>())
         .def("get_tupel", &Schiffe::get_tupel)
         .def("hit", &Schiffe::hit)
+        .def("tupel_eingeben", &Schiffe::tupel_erstellen)
         .def("get_size", &Schiffe::get_size)
         .def("get_koordinaten", &Schiffe::get_koordinaten)
         .def("koordinaten_einfügen", &Schiffe::koordinaten_einfügen);

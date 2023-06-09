@@ -50,7 +50,6 @@ namespace SchiffeVersenken
                 Koordinaten.erase(Koordinaten.begin()+i);
                 return true;
             }
-
             else 
                 return false;
         }
@@ -59,5 +58,11 @@ namespace SchiffeVersenken
     std::vector<std::tuple<int,int>> Schiffe::get_koordinaten()
     {
         return Koordinaten;
+    }
+
+    void Schiffe::tupel_erstellen(int x, int y)
+    {
+        std::tuple<int,int> tupel(x,y);
+        Koordinaten.push_back(tupel);
     }
 }

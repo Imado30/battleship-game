@@ -36,6 +36,14 @@ namespace SchiffeVersenken
         bool hit(std::tuple<int,int> koordinate);
 
         /**
+         * @brief aus x und y wird ein tupel erstellt und in Koordinaten eingefügt
+         * 
+         * @param x 
+         * @param y 
+         */
+        void tupel_erstellen(int x, int y);
+
+        /**
          * @brief Get the tupel object
          * 
          * @param index 
@@ -50,33 +58,14 @@ namespace SchiffeVersenken
          */
         int get_size();
 
+        /**
+         * @brief Gibt alle Koordinaten zurück
+         * 
+         * @return std::vector<std::tuple<int,int>> 
+         */
         std::vector<std::tuple<int,int>> get_koordinaten();
 
-        /**
-         * @brief Es werden nacheinander einzelne Schiffe mit verschiedenen Schiffgrößen platziert
-         * 
-         */
-        //void schiffe_platzieren();
-
-        /**
-         * @brief Wenn 0 eingegeben wird, wird alles zurückgesetzt und es kann neu platziert wird
-         * 
-         */
-        //void reset();
-
     private:
-        /**
-         * @brief Die festen Schiffgrößen werden hier gespeichert
-         * 
-         */
-        //vector<int> Schiffgrößen;
-
-        /**
-         * @brief Die schon erstellten und entfernten Schiffe werden für das zurücksetzen hier gespeichert
-         * 
-         */
-        //vector<int> Schiffgrößen2;
-
         /**
          * @brief Die einzelnen Schiff Koordinaten werden hier gespeichert
          * 
