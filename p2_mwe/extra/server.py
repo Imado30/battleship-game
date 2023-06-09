@@ -40,6 +40,11 @@ async def get_queue():
 @rest_api.get("/spiele")
 async def spiele_size():
     return{"s_size" : lob.spiele_size()}
+
+@rest_api.get("/{id}")
+async def get_in_game(id: int):
+    return{"current_game" : lob.player_by_id(id).get_in_game()}
+
 """
 @rest_api.get("/{game}/turn")
 async def get_turn():

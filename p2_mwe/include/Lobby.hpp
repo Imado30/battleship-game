@@ -3,6 +3,7 @@
 #include "Spieler.hpp"
 #include "Spiel.hpp"
 #include <vector>
+#include <map>
 
 namespace SchiffeVersenken{
 
@@ -23,10 +24,18 @@ namespace SchiffeVersenken{
 
             int queue_size();
 
+            Spieler player_by_id(int id);
+
         private:
 
+            void add_ids();
+
             std::vector<Spieler> queue;
-            std::vector<Spiel> spiele;
+            //std::vector<Spiel> spiele;
+            std::map<int, Spiel> games;
+            std::vector<int> game_ids;
+            int id_max;
+            std::map<int, Spieler> playing;
 
     };
 }

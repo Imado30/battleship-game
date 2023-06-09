@@ -213,7 +213,13 @@ CMakeFiles/demo1.dir/examples/Spielertest.cpp.o: ../examples/Spielertest.cpp \
   /usr/include/c++/11/pstl/glue_memory_defs.h \
   /usr/include/c++/11/pstl/execution_defs.h \
   ../include/Spiel.hpp \
-  ../include/Lobby.hpp
+  ../include/Lobby.hpp \
+  /usr/include/c++/11/map \
+  /usr/include/c++/11/bits/stl_tree.h \
+  /usr/include/c++/11/bits/node_handle.h \
+  /usr/include/c++/11/bits/stl_map.h \
+  /usr/include/c++/11/bits/stl_multimap.h \
+  /usr/include/c++/11/bits/erase_if.h
 
 CMakeFiles/demo1.dir/src/Lobby.cpp.o: ../src/Lobby.cpp \
   /usr/include/stdc-predef.h \
@@ -427,7 +433,13 @@ CMakeFiles/demo1.dir/src/Lobby.cpp.o: ../src/Lobby.cpp \
   /usr/include/c++/11/backward/auto_ptr.h \
   /usr/include/c++/11/pstl/glue_memory_defs.h \
   /usr/include/c++/11/pstl/execution_defs.h \
-  ../include/Spiel.hpp
+  ../include/Spiel.hpp \
+  /usr/include/c++/11/map \
+  /usr/include/c++/11/bits/stl_tree.h \
+  /usr/include/c++/11/bits/node_handle.h \
+  /usr/include/c++/11/bits/stl_map.h \
+  /usr/include/c++/11/bits/stl_multimap.h \
+  /usr/include/c++/11/bits/erase_if.h
 
 CMakeFiles/demo1.dir/src/Spiel.cpp.o: ../src/Spiel.cpp \
   /usr/include/stdc-predef.h \
@@ -1275,8 +1287,6 @@ CMakeFiles/demo1.dir/src/hangman_board.cpp.o: ../src/hangman_board.cpp \
 
 /usr/include/c++/11/bits/stl_algo.h:
 
-/usr/include/c++/11/bits/erase_if.h:
-
 /usr/include/c++/11/bits/enable_special_members.h:
 
 /usr/include/c++/11/bits/hashtable_policy.h:
@@ -1286,6 +1296,10 @@ CMakeFiles/demo1.dir/src/hangman_board.cpp.o: ../src/hangman_board.cpp \
 ../src/Spieler.cpp:
 
 ../src/Spiel.cpp:
+
+/usr/include/c++/11/bits/erase_if.h:
+
+/usr/include/c++/11/bits/stl_map.h:
 
 ../include/Spiel.hpp:
 
@@ -1437,6 +1451,8 @@ CMakeFiles/demo1.dir/src/hangman_board.cpp.o: ../src/hangman_board.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/wchar.h:
 
+/usr/include/c++/11/map:
+
 /usr/include/c++/11/bits/range_access.h:
 
 /usr/include/c++/11/bit:
@@ -1515,6 +1531,8 @@ CMakeFiles/demo1.dir/src/hangman_board.cpp.o: ../src/hangman_board.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/types/FILE.h:
 
+/usr/include/c++/11/bits/stl_multimap.h:
+
 /usr/include/features.h:
 
 /usr/include/c++/11/bits/atomic_base.h:
@@ -1552,6 +1570,8 @@ CMakeFiles/demo1.dir/src/hangman_board.cpp.o: ../src/hangman_board.cpp \
 /usr/include/x86_64-linux-gnu/c++/11/bits/gthr.h:
 
 ../examples/Spielertest.cpp:
+
+/usr/include/c++/11/bits/stl_tree.h:
 
 /usr/include/c++/11/tuple:
 

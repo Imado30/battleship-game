@@ -8,6 +8,7 @@ my_id=r_json['user_id']
 
 print("Suche nach Spiel...")
 
+# Queue
 waiting=True
 while waiting:
     resp=requests.get("http://127.0.0.1:8000/lobby")
@@ -21,10 +22,18 @@ while waiting:
 print("Spiel startet")
 Schiffgrößen=[1,2,3,4,5]
 
+# Dieser Block dient zum Testen
 re=requests.get("http://127.0.0.1:8000/spiele")
 re_json=re.json()
 spielesize=re_json['s_size']
 print(spielesize)
+
+# Game Id wird an Client übergeben
+r=requests.get("http://127.0.0.1:8000/%s" %my_id)
+r_json=r.json()
+my_game_id=r_json['current_game']
+
+print(my_game_id)
 
 
 """

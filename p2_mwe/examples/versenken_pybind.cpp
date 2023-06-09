@@ -16,17 +16,19 @@ PYBIND11_MODULE(schiffeversenken, m) {
         .def("waiting", &Lobby::waiting)
         .def("get_player1", &Lobby::get_player1)
         .def("spiele_size", &Lobby::spiele_size)
-        .def("queue_size", &Lobby::queue_size);
+        .def("queue_size", &Lobby::queue_size)
+        .def("player_by_id", &Lobby::player_by_id);
 
     py::class_<Spieler>(m, "Spieler")
         .def(py::init<std::string>())
         .def("Schießen", &Spieler::Schießen)
         .def("get_own_sb", &Spieler::get_own_sb)
         .def("set_ene_sb", &Spieler::set_ene_sb)
-        .def("get_id", &Spieler::get_id);
+        .def("get_id", &Spieler::get_id)
+        .def("get_in_game", &Spieler::get_in_game);
         //.def("markieren", &Spieler::markieren)
 
     py::class_<Spiel>(m, "Spiel")
-        .def(py::init<Spieler, Spieler>())
+        .def(py::init<Spieler, Spieler, int>())
         .def("spielbretter_verbinden", &Spiel::spielbretter_verbinden);
 }

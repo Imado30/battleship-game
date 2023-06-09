@@ -9,6 +9,7 @@ namespace SchiffeVersenken{
     Spieler::Spieler(std::string Name){
         name=Name;
         id=std::hash<std::string>()(Name);
+        in_game=-1;
     }
 
     void Spieler::Schießen(int x, int y){
@@ -34,5 +35,13 @@ namespace SchiffeVersenken{
 
     int Spieler::get_id(){
         return id;
+    }
+
+    void Spieler::set_in_game(int id){
+        in_game=id;
+    }
+
+    int Spieler::get_in_game(){
+        return in_game;
     }
 }
