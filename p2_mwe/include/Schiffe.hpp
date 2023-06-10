@@ -33,7 +33,7 @@ namespace SchiffeVersenken
          * @return true 
          * @return false 
          */
-        bool hit(std::tuple<int,int> koordinate);
+        bool hit(int x, int y);
 
         /**
          * @brief aus x und y wird ein tupel erstellt und in Koordinaten eingefügt
