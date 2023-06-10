@@ -26,6 +26,8 @@ namespace SchiffeVersenken{
 
             Spieler player_by_id(int id);
 
+            Spiel game_by_id(int id);
+
         private:
 
             void add_ids();

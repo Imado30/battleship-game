@@ -45,8 +45,7 @@ async def spiele_size():
 async def get_in_game(id: int):
     return{"current_game" : lob.player_by_id(id).get_in_game()}
 
-"""
+
 @rest_api.get("/{game}/turn")
-async def get_turn():
-    return{"current_turn":}  #irgendwie müsste erkannt werden, dass ich in dem jeweiligen Spiel bin 
-"""
+async def get_turn(game: int):
+    return{"current_turn": lob.game_by_id(game).get_turn()} 

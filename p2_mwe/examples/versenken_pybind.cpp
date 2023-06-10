@@ -17,6 +17,7 @@ PYBIND11_MODULE(schiffeversenken, m) {
         .def("get_player1", &Lobby::get_player1)
         .def("spiele_size", &Lobby::spiele_size)
         .def("queue_size", &Lobby::queue_size)
+        .def("game_by_id", &Lobby::game_by_id)
         .def("player_by_id", &Lobby::player_by_id);
 
     py::class_<Spieler>(m, "Spieler")
@@ -30,5 +31,6 @@ PYBIND11_MODULE(schiffeversenken, m) {
 
     py::class_<Spiel>(m, "Spiel")
         .def(py::init<Spieler, Spieler, int>())
+        .def("get_turn", &Spiel::get_turn)
         .def("spielbretter_verbinden", &Spiel::spielbretter_verbinden);
 }

@@ -36,14 +36,21 @@ my_game_id=r_json['current_game']
 print(my_game_id)
 
 
-"""
-running=True
 
+running=True
+printed=False
 while running:
-    if requests.get("http://127.0.0.1:8000/turn") == my_id:
+    r=requests.get("http://127.0.0.1:8000/%s/turn" %my_game_id)
+    r_json=r.json()
+    turn=r_json['current_turn']
+
+    if turn == my_id:
+        if not printed:
+            print("Feuer frei!")
+            printed=True
+        """
         x=input
         y=input
         requests.get("http://127.0.0.1:8000/shoot/{x}/{y}")
         #requests an Koordinaten.size(), wenn 0, dann spiel vorbei
-        
-"""
+        """

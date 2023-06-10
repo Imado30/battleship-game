@@ -81,4 +81,8 @@ namespace SchiffeVersenken{
     Spieler Lobby::player_by_id(int id){
         return playing.at(id);
     }
+
+    Spiel Lobby::game_by_id(int id){
+        return games.at(id);
+    }
 }
