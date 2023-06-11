@@ -65,4 +65,9 @@ namespace SchiffeVersenken
         std::tuple<int,int> tupel(x,y);
         Koordinaten.push_back(tupel);
     }
+
+    void Schiffe::koordinaten_löschen()
+    {
+        Koordinaten.clear();
+    }
 }

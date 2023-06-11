@@ -1,3 +1,7 @@
+# uvicorn Server:rest_api --port 8000 --reload
+# cmake -S . -B build && cmake --build build && cmake --install build
+# python3 -m uvicorn Server:rest_api --port 8000 --reload
+
 import requests
 from schiffeversenken import Schiffe
 
@@ -105,27 +109,40 @@ def eingabe_überprüfen(schiffgröße : int, x_koordinate : int, y_koordinate :
 
 while len(Schiffgrößen) != 0:
 
-    print("Es stehen dir folgende Schiffgrößen zur Verfügung: ", Schiffgrößen, "\n" , "Gebe eine Schiffgröße ein")
-    schiffgröße = int(input())
-    if schiffgröße in Schiffgrößen:
+    print("Es stehen dir folgende Schiffgrößen zur Verfügung: ", Schiffgrößen, "                 'reset' = Schiffe neu anordnen \n" , "Gebe eine Schiffgröße ein")
+    schiffgröße = input()
 
-        ergebnis_eingaben = eingaben_loop(schiffgröße)
-        x_koordinate_er = ergebnis_eingaben[0]
-        y_koordinate_er = ergebnis_eingaben[1]
-        richtung_er = ergebnis_eingaben[2]
+    while True:
+        try: 
+            if schiffgröße == "reset":
+                Schiffgrößen.clear()
+                s.koordinaten_löschen()
+                Schiffgrößen = [2,3,4,5,6]
+                print("Du kannst deine Schiffe nun nochmal neu anordnen")
+                break
 
-        ergebnis = eingabe_überprüfen(schiffgröße, x_koordinate_er, y_koordinate_er, richtung_er)
-        x_koordinate = ergebnis[0]
-        y_koordinate = ergebnis[1]
-        richtung = ergebnis[2]
+            if int(schiffgröße) in Schiffgrößen:
 
-        Schiffgrößen.remove(schiffgröße)
-        s.koordinaten_einfügen(schiffgröße, int(x_koordinate), int(y_koordinate), richtung)
-        print(s.get_size())
-        print(s.get_koordinaten())
+                ergebnis_eingaben = eingaben_loop(int(schiffgröße))
+                x_koordinate_er = ergebnis_eingaben[0]
+                y_koordinate_er = ergebnis_eingaben[1]
+                richtung_er = ergebnis_eingaben[2]
 
-    else:
-        print("Element ist nicht in den Schiffgrößen. Wähle eine der folgenden Schiffgrößen", Schiffgrößen)
+                ergebnis = eingabe_überprüfen(int(schiffgröße), x_koordinate_er, y_koordinate_er, richtung_er)
+                x_koordinate = ergebnis[0]
+                y_koordinate = ergebnis[1]
+                richtung = ergebnis[2]
+
+                Schiffgrößen.remove(int(schiffgröße))
+                s.koordinaten_einfügen(int(schiffgröße), int(x_koordinate), int(y_koordinate), richtung)
+                print(s.get_size())
+                print(s.get_koordinaten())
+            break
+
+        except:
+            print("Element ist nicht in den Schiffgrößen. Wähle eine der folgenden Schiffgrößen", Schiffgrößen, "\n")
+            schiffgröße = input()
+        
 
 
 for i in s.get_koordinaten():

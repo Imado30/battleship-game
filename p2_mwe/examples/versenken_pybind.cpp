@@ -17,6 +17,7 @@ PYBIND11_MODULE(schiffeversenken, m) {
         .def("get_tupel", &Schiffe::get_tupel)
         .def("hit", &Schiffe::hit)
         .def("tupel_erstellen", &Schiffe::tupel_erstellen)
+        .def("koordinaten_löschen", &Schiffe::koordinaten_löschen)
         .def("get_size", &Schiffe::get_size)
         .def("get_koordinaten", &Schiffe::get_koordinaten)
         .def("koordinaten_einfügen", &Schiffe::koordinaten_einfügen);

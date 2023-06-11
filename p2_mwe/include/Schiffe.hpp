@@ -43,6 +43,8 @@ namespace SchiffeVersenken
          */
         void tupel_erstellen(int x, int y);
 
+        void koordinaten_löschen();
+
         /**
          * @brief Get the tupel object
          * 
