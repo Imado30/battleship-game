@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/odin/Projekt2/p2_mwe/examples/Spielertest.cpp" "CMakeFiles/demo1.dir/examples/Spielertest.cpp.o" "gcc" "CMakeFiles/demo1.dir/examples/Spielertest.cpp.o.d"
   "/home/odin/Projekt2/p2_mwe/src/Lobby.cpp" "CMakeFiles/demo1.dir/src/Lobby.cpp.o" "gcc" "CMakeFiles/demo1.dir/src/Lobby.cpp.o.d"
+  "/home/odin/Projekt2/p2_mwe/src/Schiffe.cpp" "CMakeFiles/demo1.dir/src/Schiffe.cpp.o" "gcc" "CMakeFiles/demo1.dir/src/Schiffe.cpp.o.d"
   "/home/odin/Projekt2/p2_mwe/src/Spiel.cpp" "CMakeFiles/demo1.dir/src/Spiel.cpp.o" "gcc" "CMakeFiles/demo1.dir/src/Spiel.cpp.o.d"
   "/home/odin/Projekt2/p2_mwe/src/Spielbrett.cpp" "CMakeFiles/demo1.dir/src/Spielbrett.cpp.o" "gcc" "CMakeFiles/demo1.dir/src/Spielbrett.cpp.o.d"
   "/home/odin/Projekt2/p2_mwe/src/Spieler.cpp" "CMakeFiles/demo1.dir/src/Spieler.cpp.o" "gcc" "CMakeFiles/demo1.dir/src/Spieler.cpp.o.d"

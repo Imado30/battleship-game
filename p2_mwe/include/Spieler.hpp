@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include "../include/Spielbrett.hpp"
+#include "../include/Schiffe.hpp"
 #include <string>
 #include <memory>
 
@@ -21,21 +22,21 @@ namespace SchiffeVersenken{
          * @param x - x-Koordinate des Ziels
          * @param y - y-Koordinate des Ziels
          */
-        void Schießen(int x, int y);
+        //bool Schießen(int x, int y);
 
         /**
          * @brief Get the own sb object
          * 
          * @return std::shared_ptr<SpielBrett> 
          */
-        std::shared_ptr<SpielBrett> get_own_sb();
+        //std::shared_ptr<SpielBrett> get_own_sb();
 
         /**
          * @brief Set the ene sb object
          * 
          * @param ensb Shared Pointer auf own_sb des Gegners
          */
-        void set_ene_sb(std::shared_ptr<SpielBrett> ensb);
+        //void set_ene_sb(std::shared_ptr<SpielBrett> ensb);
 
         int get_id();
 
@@ -43,6 +44,9 @@ namespace SchiffeVersenken{
 
         int get_in_game();
 
+        Schiffe get_ship();
+
+        void add_tuple(int x, int y);
 
     private:
         /**
@@ -52,7 +56,7 @@ namespace SchiffeVersenken{
          * @param y y-Koordinate des zu markierenden Punktes
          * @param value "X" wenn Treffer, "O" wenn Fehlschuss
          */        
-        void markieren(int x, int y, std::string value);
+        //void markieren(int x, int y, std::string value);
 
         /**
          * @brief Name des Spielers
@@ -66,23 +70,26 @@ namespace SchiffeVersenken{
          */
         size_t id;
 
+        /*
         /**
          * @brief speichert das eigene Spielbrett
          * 
          */
-        SpielBrett own_sb;
+        //SpielBrett own_sb;
 
         /**
          * @brief Spielbrett, das die eigenen Schussversuche enthält
          * 
          */
-        SpielBrett opview;
+        //SpielBrett opview;
 
         /**
          * @brief Shared Pointer auf das Spielbrett des Gegners
          * 
          */
-        std::shared_ptr<SpielBrett> ene_sb;
+        //std::shared_ptr<SpielBrett> ene_sb;
+        
+        Schiffe ship;
 
         int in_game;
     };

@@ -12,14 +12,7 @@ namespace SchiffeVersenken{
         in_game=-1;
     }
 
-    void Spieler::Schießen(int x, int y){
-        if (ene_sb/*->hit(x, y)*/){             // Fehler liegt an hit, wahrscheinlich, weil die membervariablen own_sb und ene_sb keine Spielbretter enthalten, müssten mit Spielbrett initialisiert werden
-            //markieren(x,y,"X");
-            return;
-        }
-        //markieren(x, y, "O");
-    }
-
+/*
     void Spieler::markieren(int x,int y, std::string value){
         ene_sb->set_value(x,y,value);
         opview.set_value(x,y,value);
@@ -32,7 +25,7 @@ namespace SchiffeVersenken{
     void Spieler::set_ene_sb(std::shared_ptr<SpielBrett> ensb){
         ene_sb=ensb;
     }
-
+*/
     int Spieler::get_id(){
         return id;
     }
@@ -43,5 +36,13 @@ namespace SchiffeVersenken{
 
     int Spieler::get_in_game(){
         return in_game;
+    }
+
+    Schiffe Spieler::get_ship(){
+        return ship;
+    }
+
+    void Spieler::add_tuple(int x, int y){
+        ship.tupel_erstellen(x,y);
     }
 }

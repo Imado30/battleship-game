@@ -9,11 +9,13 @@ namespace SchiffeVersenken{
         public:
             Spiel(Spieler a, Spieler b, int id);
 
-            void spielbretter_verbinden();
-
             int get_turn();
 
             int get_game_id();
+
+            Spieler get_p1();
+
+            Spieler get_p2();
 
         private:
             Spieler spieler1;

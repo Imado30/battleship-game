@@ -262,6 +262,33 @@ src/Lobby.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/schiffeversenken.dir/build.make CMakeFiles/schiffeversenken.dir/src/Lobby.cpp.s
 .PHONY : src/Lobby.cpp.s
 
+src/Schiffe.o: src/Schiffe.cpp.o
+.PHONY : src/Schiffe.o
+
+# target to build an object file
+src/Schiffe.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo1.dir/build.make CMakeFiles/demo1.dir/src/Schiffe.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/schiffeversenken.dir/build.make CMakeFiles/schiffeversenken.dir/src/Schiffe.cpp.o
+.PHONY : src/Schiffe.cpp.o
+
+src/Schiffe.i: src/Schiffe.cpp.i
+.PHONY : src/Schiffe.i
+
+# target to preprocess a source file
+src/Schiffe.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo1.dir/build.make CMakeFiles/demo1.dir/src/Schiffe.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/schiffeversenken.dir/build.make CMakeFiles/schiffeversenken.dir/src/Schiffe.cpp.i
+.PHONY : src/Schiffe.cpp.i
+
+src/Schiffe.s: src/Schiffe.cpp.s
+.PHONY : src/Schiffe.s
+
+# target to generate assembly for a file
+src/Schiffe.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo1.dir/build.make CMakeFiles/demo1.dir/src/Schiffe.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/schiffeversenken.dir/build.make CMakeFiles/schiffeversenken.dir/src/Schiffe.cpp.s
+.PHONY : src/Schiffe.cpp.s
+
 src/Spiel.o: src/Spiel.cpp.o
 .PHONY : src/Spiel.o
 
@@ -393,6 +420,9 @@ help:
 	@echo "... src/Lobby.o"
 	@echo "... src/Lobby.i"
 	@echo "... src/Lobby.s"
+	@echo "... src/Schiffe.o"
+	@echo "... src/Schiffe.i"
+	@echo "... src/Schiffe.s"
 	@echo "... src/Spiel.o"
 	@echo "... src/Spiel.i"
 	@echo "... src/Spiel.s"

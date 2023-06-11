@@ -97,10 +97,24 @@ CMakeFiles/demo1.dir/src/Lobby.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo1.dir/src/Lobby.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/odin/Projekt2/p2_mwe/src/Lobby.cpp -o CMakeFiles/demo1.dir/src/Lobby.cpp.s
 
+CMakeFiles/demo1.dir/src/Schiffe.cpp.o: CMakeFiles/demo1.dir/flags.make
+CMakeFiles/demo1.dir/src/Schiffe.cpp.o: ../src/Schiffe.cpp
+CMakeFiles/demo1.dir/src/Schiffe.cpp.o: CMakeFiles/demo1.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/odin/Projekt2/p2_mwe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/demo1.dir/src/Schiffe.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/demo1.dir/src/Schiffe.cpp.o -MF CMakeFiles/demo1.dir/src/Schiffe.cpp.o.d -o CMakeFiles/demo1.dir/src/Schiffe.cpp.o -c /home/odin/Projekt2/p2_mwe/src/Schiffe.cpp
+
+CMakeFiles/demo1.dir/src/Schiffe.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo1.dir/src/Schiffe.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/odin/Projekt2/p2_mwe/src/Schiffe.cpp > CMakeFiles/demo1.dir/src/Schiffe.cpp.i
+
+CMakeFiles/demo1.dir/src/Schiffe.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo1.dir/src/Schiffe.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/odin/Projekt2/p2_mwe/src/Schiffe.cpp -o CMakeFiles/demo1.dir/src/Schiffe.cpp.s
+
 CMakeFiles/demo1.dir/src/Spiel.cpp.o: CMakeFiles/demo1.dir/flags.make
 CMakeFiles/demo1.dir/src/Spiel.cpp.o: ../src/Spiel.cpp
 CMakeFiles/demo1.dir/src/Spiel.cpp.o: CMakeFiles/demo1.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/odin/Projekt2/p2_mwe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/demo1.dir/src/Spiel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/odin/Projekt2/p2_mwe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/demo1.dir/src/Spiel.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/demo1.dir/src/Spiel.cpp.o -MF CMakeFiles/demo1.dir/src/Spiel.cpp.o.d -o CMakeFiles/demo1.dir/src/Spiel.cpp.o -c /home/odin/Projekt2/p2_mwe/src/Spiel.cpp
 
 CMakeFiles/demo1.dir/src/Spiel.cpp.i: cmake_force
@@ -114,7 +128,7 @@ CMakeFiles/demo1.dir/src/Spiel.cpp.s: cmake_force
 CMakeFiles/demo1.dir/src/Spielbrett.cpp.o: CMakeFiles/demo1.dir/flags.make
 CMakeFiles/demo1.dir/src/Spielbrett.cpp.o: ../src/Spielbrett.cpp
 CMakeFiles/demo1.dir/src/Spielbrett.cpp.o: CMakeFiles/demo1.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/odin/Projekt2/p2_mwe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/demo1.dir/src/Spielbrett.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/odin/Projekt2/p2_mwe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/demo1.dir/src/Spielbrett.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/demo1.dir/src/Spielbrett.cpp.o -MF CMakeFiles/demo1.dir/src/Spielbrett.cpp.o.d -o CMakeFiles/demo1.dir/src/Spielbrett.cpp.o -c /home/odin/Projekt2/p2_mwe/src/Spielbrett.cpp
 
 CMakeFiles/demo1.dir/src/Spielbrett.cpp.i: cmake_force
@@ -128,7 +142,7 @@ CMakeFiles/demo1.dir/src/Spielbrett.cpp.s: cmake_force
 CMakeFiles/demo1.dir/src/Spieler.cpp.o: CMakeFiles/demo1.dir/flags.make
 CMakeFiles/demo1.dir/src/Spieler.cpp.o: ../src/Spieler.cpp
 CMakeFiles/demo1.dir/src/Spieler.cpp.o: CMakeFiles/demo1.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/odin/Projekt2/p2_mwe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/demo1.dir/src/Spieler.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/odin/Projekt2/p2_mwe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/demo1.dir/src/Spieler.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/demo1.dir/src/Spieler.cpp.o -MF CMakeFiles/demo1.dir/src/Spieler.cpp.o.d -o CMakeFiles/demo1.dir/src/Spieler.cpp.o -c /home/odin/Projekt2/p2_mwe/src/Spieler.cpp
 
 CMakeFiles/demo1.dir/src/Spieler.cpp.i: cmake_force
@@ -142,7 +156,7 @@ CMakeFiles/demo1.dir/src/Spieler.cpp.s: cmake_force
 CMakeFiles/demo1.dir/src/hangman_board.cpp.o: CMakeFiles/demo1.dir/flags.make
 CMakeFiles/demo1.dir/src/hangman_board.cpp.o: ../src/hangman_board.cpp
 CMakeFiles/demo1.dir/src/hangman_board.cpp.o: CMakeFiles/demo1.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/odin/Projekt2/p2_mwe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/demo1.dir/src/hangman_board.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/odin/Projekt2/p2_mwe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/demo1.dir/src/hangman_board.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/demo1.dir/src/hangman_board.cpp.o -MF CMakeFiles/demo1.dir/src/hangman_board.cpp.o.d -o CMakeFiles/demo1.dir/src/hangman_board.cpp.o -c /home/odin/Projekt2/p2_mwe/src/hangman_board.cpp
 
 CMakeFiles/demo1.dir/src/hangman_board.cpp.i: cmake_force
@@ -157,6 +171,7 @@ CMakeFiles/demo1.dir/src/hangman_board.cpp.s: cmake_force
 demo1_OBJECTS = \
 "CMakeFiles/demo1.dir/examples/Spielertest.cpp.o" \
 "CMakeFiles/demo1.dir/src/Lobby.cpp.o" \
+"CMakeFiles/demo1.dir/src/Schiffe.cpp.o" \
 "CMakeFiles/demo1.dir/src/Spiel.cpp.o" \
 "CMakeFiles/demo1.dir/src/Spielbrett.cpp.o" \
 "CMakeFiles/demo1.dir/src/Spieler.cpp.o" \
@@ -167,13 +182,14 @@ demo1_EXTERNAL_OBJECTS =
 
 demo1: CMakeFiles/demo1.dir/examples/Spielertest.cpp.o
 demo1: CMakeFiles/demo1.dir/src/Lobby.cpp.o
+demo1: CMakeFiles/demo1.dir/src/Schiffe.cpp.o
 demo1: CMakeFiles/demo1.dir/src/Spiel.cpp.o
 demo1: CMakeFiles/demo1.dir/src/Spielbrett.cpp.o
 demo1: CMakeFiles/demo1.dir/src/Spieler.cpp.o
 demo1: CMakeFiles/demo1.dir/src/hangman_board.cpp.o
 demo1: CMakeFiles/demo1.dir/build.make
 demo1: CMakeFiles/demo1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/odin/Projekt2/p2_mwe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable demo1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/odin/Projekt2/p2_mwe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable demo1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/demo1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

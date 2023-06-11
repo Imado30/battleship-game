@@ -9,10 +9,12 @@ except ImportError as e:
   print(f"Exiting")
   exit(1)
 
-from schiffeversenken import Lobby
+from schiffeversenken import Lobby,Schiffe
 import os
 from fastapi import FastAPI
 import uvicorn
+
+from typing import List,Tuple
 
 #cmake -S . -B build && cmake --build build && cmake --install build
 
@@ -49,3 +51,43 @@ async def get_in_game(id: int):
 @rest_api.get("/{game}/turn")
 async def get_turn(game: int):
     return{"current_turn": lob.game_by_id(game).get_turn()} 
+
+@rest_api.get("/{game}/shoot/{x}/{y}")
+async def shoot(game: int, x: int, y: int):
+    spiel=lob.game_by_id(game)
+    s1=spiel.get_p1()
+    s2=spiel.get_p2()
+
+    if spiel.get_turn()==s1.get_id():
+        return{"hit": s2.get_ship().hit(x,y)}
+        
+    else:
+        return{"hit": s2.get_ship().hit(x,y)}
+
+@rest_api.get("/{sid}/postkoordinaten/{x}/{y}")
+async def post_koordinaten(sid: int, x : int, y : int):
+    lob.player_by_id(sid).add_tuple(x,y)
+    return{"Status": "Koordinaten empfangen"}
+    """spiel=lob.game_by_id(game)
+    s1=spiel.get_p1()
+    s2=spiel.get_p2()
+
+    if sid==s1.get_id():
+        s1.add_tuple(x,y)            #potenzielles Problem
+
+    else:
+        s2.add_tuple(x,y)
+        
+    return{"Status": "koordinaten empfangen"}"""
+        
+
+@rest_api.get("/{sid}/test")
+async def test(sid: int):
+    #spiel=lob.game_by_id(game)
+    #x=spiel.get_p2().get_ship().get_koordinaten()
+    x=lob.player_by_id(sid).get_ship().get_koordinaten()
+    intx=len(x)
+    return {"test": intx}
+
+
+    
