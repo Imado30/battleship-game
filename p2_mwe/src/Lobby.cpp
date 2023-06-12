@@ -45,6 +45,11 @@ namespace SchiffeVersenken{
         playing.at(id1).set_in_game(new_g_id);
         playing.at(id2).set_in_game(new_g_id);
 
+
+        std::vector<std::tuple<int,int>> arr;
+        arrays.insert(std::pair<int, std::vector<std::tuple<int,int>>>(id1, arr));
+        arrays.insert(std::pair<int, std::vector<std::tuple<int,int>>>(id2, arr));
+
         game_ids.erase(game_ids.begin());
         queue.erase(queue.begin());
         queue.erase(queue.begin()+1); //geändert
@@ -84,5 +89,26 @@ namespace SchiffeVersenken{
 
     Spiel Lobby::game_by_id(int id){
         return games.at(id);
+    }
+
+    void Lobby::add_t(int x, int y, int gid, int sid){
+        if (game_by_id(gid).get_p1().get_id()==sid){
+            game_by_id(gid).add_tup1(x,y);
+        }
+        else{
+            game_by_id(gid).add_tup2(x,y);
+        }
+    }
+
+    void Lobby::add_array(int x, int y, int id){
+        std::tuple<int, int> t(x,y);
+        std::vector<std::tuple<int,int>> a=arrays[id];
+        a.push_back(t);
+        arrays[id]=a;
+        player_by_id(id).get_ship().set_koordinaten(a);
+    }
+
+    int Lobby::array_by_id(int id){
+        return arrays.at(id).size();
     }
 }

@@ -64,30 +64,38 @@ async def shoot(game: int, x: int, y: int):
     else:
         return{"hit": s2.get_ship().hit(x,y)}
 
-@rest_api.get("/{sid}/postkoordinaten/{x}/{y}")
-async def post_koordinaten(sid: int, x : int, y : int):
-    lob.player_by_id(sid).add_tuple(x,y)
-    return{"Status": "Koordinaten empfangen"}
-    """spiel=lob.game_by_id(game)
-    s1=spiel.get_p1()
-    s2=spiel.get_p2()
-
-    if sid==s1.get_id():
-        s1.add_tuple(x,y)            #potenzielles Problem
-
-    else:
-        s2.add_tuple(x,y)
+@rest_api.get("/postkoordinaten/{game}/{sid}/{x}/{y}")
+async def post_koordinaten(game: int, sid: int, x : int, y : int):
+    lob.add_t(x,y,game,sid)
         
-    return{"Status": "koordinaten empfangen"}"""
+    return{"Status": "koordinaten empfangen"}
         
 
-@rest_api.get("/{sid}/test")
-async def test(sid: int):
-    #spiel=lob.game_by_id(game)
-    #x=spiel.get_p2().get_ship().get_koordinaten()
-    x=lob.player_by_id(sid).get_ship().get_koordinaten()
+@rest_api.get("/test/{game}")
+async def test(game: int):
+    spiel=lob.game_by_id(game)
+    x=spiel.get_p2().get_ship().get_koordinaten()
+    
     intx=len(x)
     return {"test": intx}
 
+@rest_api.get("/t/{game}/{x}/{y}")
+async def t(game: int,x: int, y:int):
+    lob.game_by_id(game).get_p2().set_x(x)
+    lob.game_by_id(game).get_p2().set_y(y)
+    return{"test": "x"}
+
+@rest_api.get("/getx/{game}")
+async def getx(game: int):
+    return{"x":lob.game_by_id(game).get_p2().getx()}
+
+@rest_api.get("/add_to_array/{sid}/{x}/{y}")
+async def add_to_array(sid: int, x: int, y: int):
+    lob.add_array(x,y,sid)
+    return{"status":"Koordinaten empfangen"}
+
+@rest_api.get("/array_by_id/{sid}")
+async def array_by_id(sid:int):
+    return{"size":lob.array_by_id(sid)}
 
     

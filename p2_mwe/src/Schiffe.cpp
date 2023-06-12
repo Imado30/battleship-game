@@ -63,9 +63,12 @@ namespace SchiffeVersenken
     vector<std::tuple<int,int>> Schiffe::tupel_erstellen(int x, int y)
     {
         std::tuple<int,int> tupel(x,y);
-        std::cout << "tupel wird erstellt" << std::endl;
         Koordinaten.push_back(tupel);
         std::cout << "folgende Werte wurden eigefügt " << get<0>(Koordinaten[0]) << " " << get<1>(Koordinaten[0]) << std::endl;
         return Koordinaten;
+    }
+
+    void Schiffe::set_koordinaten(std::vector<std::tuple<int,int>> in){
+        Koordinaten=in;
     }
 }

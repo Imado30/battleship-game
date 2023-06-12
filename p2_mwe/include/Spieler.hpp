@@ -48,6 +48,12 @@ namespace SchiffeVersenken{
 
         void add_tuple(int x, int y);
 
+        void set_x(int x);
+
+        void set_y(int y);
+
+        int get_x();
+
     private:
         /**
          * @brief Hilfsfunktion zur Darstellung aller Schüsse auf den jeweiligen Spielbrettern
@@ -92,6 +98,10 @@ namespace SchiffeVersenken{
         Schiffe ship;
 
         int in_game;
+
+        int x;
+
+        int y;
     };
 
 }

@@ -35,13 +35,15 @@ namespace SchiffeVersenken
          */
         bool hit(int x, int y);
 
+        void set_koordinaten(std::vector<std::tuple<int,int>> in);
+
         /**
          * @brief aus x und y wird ein tupel erstellt und in Koordinaten eingefügt
          * 
          * @param x 
          * @param y 
          */
-        vector<std::tuple<int,int>> tupel_erstellen(int x, int y);
+        std::vector<std::tuple<int,int>> tupel_erstellen(int x, int y);
 
         /**
          * @brief Get the tupel object

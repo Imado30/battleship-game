@@ -33,4 +33,13 @@ namespace SchiffeVersenken{
     Spieler Spiel::get_p2(){
         return spieler2;
     }
+
+    void Spiel::add_tup1(int x, int y){
+        spieler1.add_tuple(x,y);
+    }
+
+    void Spiel::add_tup2(int x, int y){
+        spieler2.add_tuple(x,y);
+    }
+
 }

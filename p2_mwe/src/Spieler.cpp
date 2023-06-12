@@ -44,5 +44,19 @@ namespace SchiffeVersenken{
 
     void Spieler::add_tuple(int x, int y){
         ship.tupel_erstellen(x,y);
+        std::cout << ship.get_koordinaten().size() << std::endl;
+
+    }
+
+    void Spieler::set_x(int x_in){
+        x=x_in;
+    }
+
+    void Spieler::set_y(int y_in){
+        y=y_in;
+    }
+
+    int Spieler::get_x(){
+        return x;
     }
 }

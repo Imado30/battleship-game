@@ -258,11 +258,27 @@ while len(Schiffgrößen) != 0:
 for i in s.get_koordinaten():
     x_koordinate = i[0]
     y_koordinate = i[1]
-    resp = requests.get("http://127.0.0.1:8000/%s/postkoordinaten/%s/%s"%(my_id, x_koordinate, y_koordinate))
+    resp = requests.get("http://127.0.0.1:8000/postkoordinaten/%s/%s/%s/%s"%(my_game_id, my_id, x_koordinate, y_koordinate))
+    requests.get("http://127.0.0.1:8000/t/%s/%s/%s"%(my_game_id, x_koordinate, y_koordinate))
+    requests.get("http://127.0.0.1:8000/add_to_array/%s/%s/%s"%(my_id,x_koordinate,y_koordinate))
     rj=resp.json()
     print(rj['Status'])
 
+    t=requests.get("http://127.0.0.1:8000/test/%s"%my_game_id)
+    t_js=t.json()
+    print("Koordinate:", t_js['test'])
 
+
+resp=requests.get("http://127.0.0.1:8000/array_by_id/%s"%my_id)
+resp_j=resp.json()
+print(resp_j['size'])
+
+"""
+print("x-Wert ist:")
+rr=requests.get("http://127.0.0.1:8000/getx/%s"%my_game_id)
+rr_json=rr.json()
+print(rr_json['x'])
+"""
 
 running=True
 printed=False
@@ -281,7 +297,8 @@ while running:
         x=input("Wähle x-Koordinate: ")
         while True:
             try:
-                while int(x)<0 or int(x)>9:
+                int_x=int(x)
+                while int_x<0 or int_x>9:
                     x=input("Die x-Koordinate muss zwischen 0 und 9 liegen. Bitte wähle erneut: ")
                 break
             except:
@@ -290,16 +307,14 @@ while running:
         y=input("Wähle y-Koordinate: ")
         while True:
             try:
-                while int(y)<0 or int(y)>9:
+                int_y=int(y)
+                while int_y<0 or int_y>9:
                     y=input("Die y-Koordinate muss zwischen 0 und 9 liegen. Bitte wähle erneut: ")
                 break
 
             except:
                 y=input("Eingabe muss ein Integer Wert sein")
 
-        t=requests.get("http://127.0.0.1:8000/%s/test"%my_id)
-        t_js=t.json()
-        print("Koordinate:", t_js['test'])
 
         r=requests.get("http://127.0.0.1:8000/%s/shoot/%s/%s"%(my_game_id,x,y))
         r_json= r.json()

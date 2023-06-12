@@ -17,6 +17,10 @@ namespace SchiffeVersenken{
 
             Spieler get_p2();
 
+            void add_tup1(int x, int y);
+
+            void add_tup2(int x, int y);
+
         private:
             Spieler spieler1;
             Spieler spieler2;
