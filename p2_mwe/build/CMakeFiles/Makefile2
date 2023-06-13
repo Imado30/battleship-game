@@ -83,12 +83,12 @@ clean: CMakeFiles/schiffeversenken.dir/clean
 CMakeFiles/demo1.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo1.dir/build.make CMakeFiles/demo1.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo1.dir/build.make CMakeFiles/demo1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/odin/poose_spiel/p2_mwe/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target demo1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/odin/poose_spiel/p2_mwe/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target demo1"
 .PHONY : CMakeFiles/demo1.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/demo1.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/odin/poose_spiel/p2_mwe/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/odin/poose_spiel/p2_mwe/build/CMakeFiles 9
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/demo1.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/odin/poose_spiel/p2_mwe/build/CMakeFiles 0
 .PHONY : CMakeFiles/demo1.dir/rule
@@ -109,12 +109,12 @@ CMakeFiles/demo1.dir/clean:
 CMakeFiles/schiffeversenken.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/schiffeversenken.dir/build.make CMakeFiles/schiffeversenken.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/schiffeversenken.dir/build.make CMakeFiles/schiffeversenken.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/odin/poose_spiel/p2_mwe/build/CMakeFiles --progress-num=7,8,9,10,11,12 "Built target schiffeversenken"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/odin/poose_spiel/p2_mwe/build/CMakeFiles --progress-num=10,11,12,13,14,15,16,17,18 "Built target schiffeversenken"
 .PHONY : CMakeFiles/schiffeversenken.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/schiffeversenken.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/odin/poose_spiel/p2_mwe/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/odin/poose_spiel/p2_mwe/build/CMakeFiles 9
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/schiffeversenken.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/odin/poose_spiel/p2_mwe/build/CMakeFiles 0
 .PHONY : CMakeFiles/schiffeversenken.dir/rule

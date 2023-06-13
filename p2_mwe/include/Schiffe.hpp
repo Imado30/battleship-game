@@ -67,6 +67,13 @@ namespace SchiffeVersenken
          */
         std::vector<std::tuple<int,int>> get_koordinaten();
 
+        /**
+         * @brief Set the koordinaten object
+         * 
+         * @param in 
+         */
+        void set_koordinaten(std::vector<std::tuple<int,int>> in);
+
     private:
         /**
          * @brief Die einzelnen Schiff Koordinaten werden hier gespeichert

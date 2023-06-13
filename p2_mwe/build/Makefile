@@ -235,6 +235,33 @@ examples/versenken_pybind.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/schiffeversenken.dir/build.make CMakeFiles/schiffeversenken.dir/examples/versenken_pybind.cpp.s
 .PHONY : examples/versenken_pybind.cpp.s
 
+src/Lobby.o: src/Lobby.cpp.o
+.PHONY : src/Lobby.o
+
+# target to build an object file
+src/Lobby.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo1.dir/build.make CMakeFiles/demo1.dir/src/Lobby.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/schiffeversenken.dir/build.make CMakeFiles/schiffeversenken.dir/src/Lobby.cpp.o
+.PHONY : src/Lobby.cpp.o
+
+src/Lobby.i: src/Lobby.cpp.i
+.PHONY : src/Lobby.i
+
+# target to preprocess a source file
+src/Lobby.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo1.dir/build.make CMakeFiles/demo1.dir/src/Lobby.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/schiffeversenken.dir/build.make CMakeFiles/schiffeversenken.dir/src/Lobby.cpp.i
+.PHONY : src/Lobby.cpp.i
+
+src/Lobby.s: src/Lobby.cpp.s
+.PHONY : src/Lobby.s
+
+# target to generate assembly for a file
+src/Lobby.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo1.dir/build.make CMakeFiles/demo1.dir/src/Lobby.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/schiffeversenken.dir/build.make CMakeFiles/schiffeversenken.dir/src/Lobby.cpp.s
+.PHONY : src/Lobby.cpp.s
+
 src/Schiffe.o: src/Schiffe.cpp.o
 .PHONY : src/Schiffe.o
 
@@ -289,6 +316,33 @@ src/SchiffeOld.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/schiffeversenken.dir/build.make CMakeFiles/schiffeversenken.dir/src/SchiffeOld.cpp.s
 .PHONY : src/SchiffeOld.cpp.s
 
+src/Spiel.o: src/Spiel.cpp.o
+.PHONY : src/Spiel.o
+
+# target to build an object file
+src/Spiel.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo1.dir/build.make CMakeFiles/demo1.dir/src/Spiel.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/schiffeversenken.dir/build.make CMakeFiles/schiffeversenken.dir/src/Spiel.cpp.o
+.PHONY : src/Spiel.cpp.o
+
+src/Spiel.i: src/Spiel.cpp.i
+.PHONY : src/Spiel.i
+
+# target to preprocess a source file
+src/Spiel.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo1.dir/build.make CMakeFiles/demo1.dir/src/Spiel.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/schiffeversenken.dir/build.make CMakeFiles/schiffeversenken.dir/src/Spiel.cpp.i
+.PHONY : src/Spiel.cpp.i
+
+src/Spiel.s: src/Spiel.cpp.s
+.PHONY : src/Spiel.s
+
+# target to generate assembly for a file
+src/Spiel.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo1.dir/build.make CMakeFiles/demo1.dir/src/Spiel.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/schiffeversenken.dir/build.make CMakeFiles/schiffeversenken.dir/src/Spiel.cpp.s
+.PHONY : src/Spiel.cpp.s
+
 src/Spielbrett.o: src/Spielbrett.cpp.o
 .PHONY : src/Spielbrett.o
 
@@ -315,6 +369,33 @@ src/Spielbrett.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo1.dir/build.make CMakeFiles/demo1.dir/src/Spielbrett.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/schiffeversenken.dir/build.make CMakeFiles/schiffeversenken.dir/src/Spielbrett.cpp.s
 .PHONY : src/Spielbrett.cpp.s
+
+src/Spieler.o: src/Spieler.cpp.o
+.PHONY : src/Spieler.o
+
+# target to build an object file
+src/Spieler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo1.dir/build.make CMakeFiles/demo1.dir/src/Spieler.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/schiffeversenken.dir/build.make CMakeFiles/schiffeversenken.dir/src/Spieler.cpp.o
+.PHONY : src/Spieler.cpp.o
+
+src/Spieler.i: src/Spieler.cpp.i
+.PHONY : src/Spieler.i
+
+# target to preprocess a source file
+src/Spieler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo1.dir/build.make CMakeFiles/demo1.dir/src/Spieler.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/schiffeversenken.dir/build.make CMakeFiles/schiffeversenken.dir/src/Spieler.cpp.i
+.PHONY : src/Spieler.cpp.i
+
+src/Spieler.s: src/Spieler.cpp.s
+.PHONY : src/Spieler.s
+
+# target to generate assembly for a file
+src/Spieler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo1.dir/build.make CMakeFiles/demo1.dir/src/Spieler.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/schiffeversenken.dir/build.make CMakeFiles/schiffeversenken.dir/src/Spieler.cpp.s
+.PHONY : src/Spieler.cpp.s
 
 src/hangman_board.o: src/hangman_board.cpp.o
 .PHONY : src/hangman_board.o
@@ -363,15 +444,24 @@ help:
 	@echo "... examples/versenken_pybind.o"
 	@echo "... examples/versenken_pybind.i"
 	@echo "... examples/versenken_pybind.s"
+	@echo "... src/Lobby.o"
+	@echo "... src/Lobby.i"
+	@echo "... src/Lobby.s"
 	@echo "... src/Schiffe.o"
 	@echo "... src/Schiffe.i"
 	@echo "... src/Schiffe.s"
 	@echo "... src/SchiffeOld.o"
 	@echo "... src/SchiffeOld.i"
 	@echo "... src/SchiffeOld.s"
+	@echo "... src/Spiel.o"
+	@echo "... src/Spiel.i"
+	@echo "... src/Spiel.s"
 	@echo "... src/Spielbrett.o"
 	@echo "... src/Spielbrett.i"
 	@echo "... src/Spielbrett.s"
+	@echo "... src/Spieler.o"
+	@echo "... src/Spieler.i"
+	@echo "... src/Spieler.s"
 	@echo "... src/hangman_board.o"
 	@echo "... src/hangman_board.i"
 	@echo "... src/hangman_board.s"

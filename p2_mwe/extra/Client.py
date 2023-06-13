@@ -1,13 +1,49 @@
-# uvicorn Server:rest_api --port 8000 --reload
-# cmake -S . -B build && cmake --build build && cmake --install build
-# python3 -m uvicorn Server:rest_api --port 8000 --reload
-
+#uvicorn server:rest_api --port 8000 --reload
 import requests
 from schiffeversenken import Schiffe
 
-s = Schiffe()
-Schiffgrößen=[2,3,4,5,6]
+name=input("Gib deinen Namen ein: ")
+r=requests.get("http://127.0.0.1:8000/lobby/%s" %name)
 
+r_json=r.json()
+my_id=r_json['user_id']
+print(my_id)
+
+print("Suche nach Spiel...")
+
+# Queue
+waiting=True
+while waiting:
+    resp=requests.get("http://127.0.0.1:8000/lobby")
+    resp_json=resp.json()
+    a=resp_json['q_size']
+
+    if a==0:
+        waiting=False
+    
+           
+print("Spiel startet")
+
+# Dieser Block dient zum Testen
+re=requests.get("http://127.0.0.1:8000/spiele")
+re_json=re.json()
+spielesize=re_json['s_size']
+print(spielesize)
+
+# Game Id wird an Client übergeben
+r=requests.get("http://127.0.0.1:8000/%s" %my_id)
+r_json=r.json()
+my_game_id=r_json['current_game']
+
+# In Gid wird die Gegner ID gespeichert
+print(my_game_id)
+r = requests.get("http://127.0.0.1:8000/get_gid/%s" %my_id)
+r_json= r.json()
+gid = r_json["gid"]
+
+#Schiffe werden platziert
+s=Schiffe()
+Schiffgrößen=[2]
 
 def eingaben_loop(schiffgröße : int) -> list:
     print("Gebe die x-Koordinate an für die Schiffgröße: ", schiffgröße)
@@ -144,8 +180,85 @@ while len(Schiffgrößen) != 0:
             schiffgröße = input()
         
 
-
 for i in s.get_koordinaten():
     x_koordinate = i[0]
     y_koordinate = i[1]
-    resp = requests.get("http://127.0.0.1:8000/postkoordinaten/%s/%s"%(x_koordinate, y_koordinate))
+    resp = requests.get("http://127.0.0.1:8000/postkoordinaten/%s/%s/%s/%s"%(my_game_id, my_id, x_koordinate, y_koordinate))
+    requests.get("http://127.0.0.1:8000/t/%s/%s/%s"%(my_game_id, x_koordinate, y_koordinate))
+    requests.get("http://127.0.0.1:8000/add_to_array/%s/%s/%s"%(my_id,x_koordinate,y_koordinate))
+    rj=resp.json()
+    print(rj['Status'])
+
+    t=requests.get("http://127.0.0.1:8000/test/%s"%my_game_id)
+    t_js=t.json()
+    print("Koordinate:", t_js['test'])
+
+
+resp=requests.get("http://127.0.0.1:8000/array_by_id/%s"%my_id)
+resp_j=resp.json()
+print(resp_j['size'])
+
+"""
+print("x-Wert ist:")
+rr=requests.get("http://127.0.0.1:8000/getx/%s"%my_game_id)
+rr_json=rr.json()
+print(rr_json['x'])
+"""
+
+running=True
+printed=False
+gegner_print=False
+while running:
+    r=requests.get("http://127.0.0.1:8000/%s/turn" %my_game_id)
+    r_json=r.json()
+    turn=r_json['current_turn']
+
+    if turn == my_id:
+        gegner_print=False
+        if not printed:
+            print("Feuer frei!")
+            printed=True
+        
+        x=input("Wähle x-Koordinate: ")
+        while True:
+            try:
+                int_x=int(x)
+                while int_x<0 or int_x>9:
+                    x=input("Die x-Koordinate muss zwischen 0 und 9 liegen. Bitte wähle erneut: ")
+                    break
+                break
+            except:
+                x=input("Eingabe muss ein Integer Wert sein")
+
+        y=input("Wähle y-Koordinate: ")
+        while True:
+            try:
+                int_y=int(y)
+                while int_y<0 or int_y>9:
+                    y=input("Die y-Koordinate muss zwischen 0 und 9 liegen. Bitte wähle erneut: ")
+                    break
+                break
+
+            except:
+                y=input("Eingabe muss ein Integer Wert sein")
+
+
+        r=requests.get("http://127.0.0.1:8000/shoot/%s/%s/%s"%(gid,x,y))
+        r_json= r.json()
+        
+        if r_json['Hit']=="Hit":
+            print("Volltreffer!")
+            resp=requests.get("http://127.0.0.1:8000/array_by_id/%s"%gid)
+            resp_j=resp.json()
+            print(resp_j['size'])
+
+        else:
+            print("leider daneben")
+            #turn auf gegner ändern
+        #requests an Koordinaten.size(), wenn 0, dann spiel vorbei
+        
+
+    else:
+        if not gegner_print:
+            print("Der Gegner ist am Zug")
+            gegner_print=True

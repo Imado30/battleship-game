@@ -70,4 +70,10 @@ namespace SchiffeVersenken
     {
         Koordinaten.clear();
     }
+
+    void Schiffe::set_koordinaten(std::vector<std::tuple<int,int>> in)
+    {
+        Koordinaten=in;
+    }
+
 }
