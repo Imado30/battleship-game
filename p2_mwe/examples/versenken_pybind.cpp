@@ -23,6 +23,7 @@ PYBIND11_MODULE(schiffeversenken, m) {
         .def("array_by_id", &Lobby::array_by_id)
         .def("game_by_id", &Lobby::game_by_id)
         .def("add_t", &Lobby::add_t)
+        .def("hit", &Lobby::hit)
         .def("player_by_id", &Lobby::player_by_id);
 
     py::class_<Spieler>(m, "Spieler")
@@ -33,6 +34,8 @@ PYBIND11_MODULE(schiffeversenken, m) {
         .def("set_x", &Spieler::set_x)
         .def("set_y", &Spieler::set_y)
         .def("getx", &Spieler::get_x)
+        .def("get_gid", &Spieler::get_gid)
+        .def("set_gid", &Spieler::set_gid)
         .def("add_tuple", &Spieler::add_tuple);
         //.def("markieren", &Spieler::markieren)
 
@@ -48,7 +51,6 @@ PYBIND11_MODULE(schiffeversenken, m) {
     py::class_<Schiffe>(m, "Schiffe")
         .def(py::init<>())
         .def("get_tupel", &Schiffe::get_tupel)
-        .def("hit", &Schiffe::hit)
         .def("tupel_erstellen", &Schiffe::tupel_erstellen)
         .def("get_size", &Schiffe::get_size)
         .def("get_koordinaten", &Schiffe::get_koordinaten)

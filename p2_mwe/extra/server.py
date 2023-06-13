@@ -47,22 +47,21 @@ async def spiele_size():
 async def get_in_game(id: int):
     return{"current_game" : lob.player_by_id(id).get_in_game()}
 
+@rest_api.get("/get_gid/{id}")
+async def get_gid(id: int):
+    return{"gid" : lob.player_by_id(id).get_gid()}
 
 @rest_api.get("/{game}/turn")
 async def get_turn(game: int):
     return{"current_turn": lob.game_by_id(game).get_turn()} 
 
-@rest_api.get("/{game}/shoot/{x}/{y}")
-async def shoot(game: int, x: int, y: int):
-    spiel=lob.game_by_id(game)
-    s1=spiel.get_p1()
-    s2=spiel.get_p2()
-
-    if spiel.get_turn()==s1.get_id():
-        return{"hit": s2.get_ship().hit(x,y)}
-        
+@rest_api.get("/shoot/{sid}/{x}/{y}")
+async def shoot(sid : int, x: int, y: int):
+    if lob.hit(sid,x,y):
+        return{"Hit" : "Hit"}
     else:
-        return{"hit": s2.get_ship().hit(x,y)}
+        return{"Hit" : "Miss"}
+
 
 @rest_api.get("/postkoordinaten/{game}/{sid}/{x}/{y}")
 async def post_koordinaten(game: int, sid: int, x : int, y : int):

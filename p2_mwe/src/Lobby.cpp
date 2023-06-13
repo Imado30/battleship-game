@@ -45,6 +45,8 @@ namespace SchiffeVersenken{
         playing.at(id1).set_in_game(new_g_id);
         playing.at(id2).set_in_game(new_g_id);
 
+        playing.at(id1).set_gid(id2);
+        playing.at(id2).set_gid(id1);
 
         std::vector<std::tuple<int,int>> arr;
         arrays.insert(std::pair<int, std::vector<std::tuple<int,int>>>(id1, arr));
@@ -110,5 +112,20 @@ namespace SchiffeVersenken{
 
     int Lobby::array_by_id(int id){
         return arrays.at(id).size();
+    }
+
+    bool Lobby::hit(int sid, int x, int y)
+    {
+        std::vector<std::tuple<int,int>> Koordinaten = arrays[sid];
+        std::tuple<int, int> koordinate(x,y);
+        for (int i = 0; i < Koordinaten.size(); i++)
+        {
+            if (Koordinaten[i] == koordinate)
+            {
+                Koordinaten.erase(Koordinaten.begin()+i);
+                return true;
+            }
+        }
+        return false;
     }
 }

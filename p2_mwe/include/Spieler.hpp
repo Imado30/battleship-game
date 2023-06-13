@@ -54,6 +54,10 @@ namespace SchiffeVersenken{
 
         int get_x();
 
+        void set_gid(int id);
+
+        int get_gid();
+
     private:
         /**
          * @brief Hilfsfunktion zur Darstellung aller Schüsse auf den jeweiligen Spielbrettern
@@ -98,6 +102,8 @@ namespace SchiffeVersenken{
         Schiffe ship;
 
         int in_game;
+
+        int gid;
 
         int x;
 

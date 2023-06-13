@@ -26,14 +26,6 @@ namespace SchiffeVersenken
          */
         void koordinaten_einfügen(int a, int x, int y, string direction);
 
-        /**
-         * @brief überprüft im die Koordinate getroffen wurde. Wenn true, dann wird die Koordinate aus dem Koordinaten Array entfernt
-         * 
-         * @param koordinate 
-         * @return true 
-         * @return false 
-         */
-        bool hit(int x, int y);
 
         void set_koordinaten(std::vector<std::tuple<int,int>> in);
 

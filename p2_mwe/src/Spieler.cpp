@@ -59,4 +59,14 @@ namespace SchiffeVersenken{
     int Spieler::get_x(){
         return x;
     }
+
+    void Spieler::set_gid(int id)
+    {
+        gid = id;
+    }
+
+    int Spieler::get_gid()
+    {
+        return gid;
+    }
 }

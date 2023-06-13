@@ -35,8 +35,11 @@ r=requests.get("http://127.0.0.1:8000/%s" %my_id)
 r_json=r.json()
 my_game_id=r_json['current_game']
 
+# In Gid wird die Gegner ID gespeichert
 print(my_game_id)
-
+r = requests.get("http://127.0.0.1:8000/get_gid/%s" %my_id)
+r_json= r.json()
+gid = r_json["gid"]
 
 #Schiffe werden platziert
 s=Schiffe()
@@ -316,10 +319,10 @@ while running:
                 y=input("Eingabe muss ein Integer Wert sein")
 
 
-        r=requests.get("http://127.0.0.1:8000/%s/shoot/%s/%s"%(my_game_id,x,y))
+        r=requests.get("http://127.0.0.1:8000/shoot/%s/%s/%s"%(gid,x,y))
         r_json= r.json()
         
-        if r_json['hit']:
+        if r_json['Hit']:
             print("Volltreffer!")
 
         else:

@@ -33,6 +33,16 @@ namespace SchiffeVersenken{
             void add_array(int x, int y, int id);
 
             int array_by_id(int id);
+
+                /**
+             * @brief überprüft im die Koordinate getroffen wurde. Wenn true, dann wird die Koordinate aus dem Koordinaten Array entfernt
+             * 
+             * @param koordinate 
+             * @return true 
+             * @return false 
+             */
+            bool hit(int sid, int x, int y);
+            
         private:
 
             void add_ids();
