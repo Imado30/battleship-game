@@ -30,7 +30,6 @@ PYBIND11_MODULE(schiffeversenken, m) {
         .def(py::init<>())
         .def("spiel_erstellen", &Lobby::spiel_erstellen)
         .def("spieler_erstellen", &Lobby::spieler_erstellen)
-        .def("waiting", &Lobby::waiting)
         .def("get_player1", &Lobby::get_player1)
         .def("spiele_size", &Lobby::spiele_size)
         .def("queue_size", &Lobby::queue_size)
@@ -38,6 +37,8 @@ PYBIND11_MODULE(schiffeversenken, m) {
         .def("array_by_id", &Lobby::array_by_id)
         .def("game_by_id", &Lobby::game_by_id)
         .def("add_t", &Lobby::add_t)
+        .def("edit_game", &Lobby::edit_game)
+        .def("erase_game", &Lobby::erase_game)
         .def("hit", &Lobby::hit)
         .def("player_by_id", &Lobby::player_by_id);
 
@@ -46,9 +47,6 @@ PYBIND11_MODULE(schiffeversenken, m) {
         .def("get_id", &Spieler::get_id)
         .def("get_ship", &Spieler::get_ship)
         .def("get_in_game", &Spieler::get_in_game)
-        .def("set_x", &Spieler::set_x)
-        .def("set_y", &Spieler::set_y)
-        .def("getx", &Spieler::get_x)
         .def("get_gid", &Spieler::get_gid)
         .def("set_gid", &Spieler::set_gid)
         .def("add_tuple", &Spieler::add_tuple);
@@ -59,6 +57,9 @@ PYBIND11_MODULE(schiffeversenken, m) {
         .def("get_turn", &Spiel::get_turn)
         .def("add_tup1", &Spiel::add_tup1)
         .def("add_tup2", &Spiel::add_tup2)
+        .def("set_turn", &Spiel::set_turn)
+        .def("set_over", &Spiel::set_over)
+        .def("get_over", &Spiel::get_over)
         .def("get_p1", &Spiel::get_p1)
         .def("get_p2", &Spiel::get_p2);
 }

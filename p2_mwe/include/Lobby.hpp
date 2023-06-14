@@ -16,8 +16,6 @@ namespace SchiffeVersenken{
 
             Spieler spieler_erstellen(std::string name);
 
-            bool waiting(int id);
-
             Spieler get_player1();
 
             int spiele_size();
@@ -42,13 +40,16 @@ namespace SchiffeVersenken{
              * @return false 
              */
             bool hit(int sid, int x, int y);
+
+            void edit_game(int id, Spiel a);
+
+            void erase_game(int game_id);
             
         private:
 
             void add_ids();
 
             std::vector<Spieler> queue;
-            //std::vector<Spiel> spiele;
             std::map<int, Spiel> games;
             std::vector<int> game_ids;
             int id_max;

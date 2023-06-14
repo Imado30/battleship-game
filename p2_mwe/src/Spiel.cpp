@@ -11,6 +11,7 @@ namespace SchiffeVersenken{
         game_id=id;
         a.set_in_game(id);
         b.set_in_game(id);
+        over=false;
     };
    /* 
     void Spiel::spielbretter_verbinden(){
@@ -42,4 +43,20 @@ namespace SchiffeVersenken{
         spieler2.add_tuple(x,y);
     }
 
+    void Spiel::set_turn(){
+        if (turn==spieler1.get_id()){
+            turn=spieler2.get_id();
+        }
+        else{
+            turn=spieler1.get_id();
+        }
+    }
+
+    void Spiel::set_over(){
+        over=true;
+    }
+
+    bool Spiel::get_over(){
+        return over;
+    }
 }

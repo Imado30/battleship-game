@@ -1,7 +1,3 @@
-# uvicorn Server:rest_api --port 8000 --reload
-# cmake -S . -B build && cmake --build build && cmake --install build
-# python3 -m uvicorn Server:rest_api --port 8000 --reload
-
 from fastapi import FastAPI
 
 try:
@@ -19,6 +15,8 @@ from fastapi import FastAPI
 import uvicorn
 
 from typing import List,Tuple
+
+#cmake -S . -B build && cmake --build build && cmake --install build
 
 lob = Lobby()
 
@@ -80,16 +78,6 @@ async def test(game: int):
     intx=len(x)
     return {"test": intx}
 
-@rest_api.get("/t/{game}/{x}/{y}")
-async def t(game: int,x: int, y:int):
-    lob.game_by_id(game).get_p2().set_x(x)
-    lob.game_by_id(game).get_p2().set_y(y)
-    return{"test": "x"}
-
-@rest_api.get("/getx/{game}")
-async def getx(game: int):
-    return{"x":lob.game_by_id(game).get_p2().getx()}
-
 @rest_api.get("/add_to_array/{sid}/{x}/{y}")
 async def add_to_array(sid: int, x: int, y: int):
     lob.add_array(x,y,sid)
@@ -99,4 +87,29 @@ async def add_to_array(sid: int, x: int, y: int):
 async def array_by_id(sid:int):
     return{"size":lob.array_by_id(sid)}
 
+@rest_api.get("/set_turn/{game}")
+async def set_turn(game: int):
+    a=lob.game_by_id(game)
+    a.set_turn()
+    lob.edit_game(game, a)
+    return{"status":"Zug gewechselt"}
     
+@rest_api.get("/set_over/{game}")
+async def set_over(game: int):
+    a=lob.game_by_id(game)
+    a.set_over()
+    lob.edit_game(game, a)
+    return{"status":"spiel beendet"}
+
+@rest_api.get("/get_over/{game}")
+async def get_over(game: int):
+    a=lob.game_by_id(game)
+    if a.get_over():
+        return{"over":"True"}
+    else:
+        return{"over":"False"}
+
+@rest_api.get("/erase_game/{game}")
+async def erase_game(game: int):
+    lob.erase_game(game)
+    return{"status":"Spiel wurde entfernt"}

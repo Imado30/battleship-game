@@ -48,18 +48,6 @@ namespace SchiffeVersenken{
 
     }
 
-    void Spieler::set_x(int x_in){
-        x=x_in;
-    }
-
-    void Spieler::set_y(int y_in){
-        y=y_in;
-    }
-
-    int Spieler::get_x(){
-        return x;
-    }
-
     void Spieler::set_gid(int id)
     {
         gid = id;

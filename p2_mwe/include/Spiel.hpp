@@ -21,10 +21,17 @@ namespace SchiffeVersenken{
 
             void add_tup2(int x, int y);
 
+            void set_turn();
+
+            void set_over();
+
+            bool get_over();
+
         private:
             Spieler spieler1;
             Spieler spieler2;
             int turn;
             int game_id;
+            bool over;
     };
 }

@@ -183,11 +183,10 @@ while len(Schiffgrößen) != 0:
 for i in s.get_koordinaten():
     x_koordinate = i[0]
     y_koordinate = i[1]
-    resp = requests.get("http://127.0.0.1:8000/postkoordinaten/%s/%s/%s/%s"%(my_game_id, my_id, x_koordinate, y_koordinate))
-    requests.get("http://127.0.0.1:8000/t/%s/%s/%s"%(my_game_id, x_koordinate, y_koordinate))
+    """requests.get("http://127.0.0.1:8000/t/%s/%s/%s"%(my_game_id, x_koordinate, y_koordinate))"""
     requests.get("http://127.0.0.1:8000/add_to_array/%s/%s/%s"%(my_id,x_koordinate,y_koordinate))
     rj=resp.json()
-    print(rj['Status'])
+    
 
     t=requests.get("http://127.0.0.1:8000/test/%s"%my_game_id)
     t_js=t.json()
@@ -198,17 +197,20 @@ resp=requests.get("http://127.0.0.1:8000/array_by_id/%s"%my_id)
 resp_j=resp.json()
 print(resp_j['size'])
 
-"""
-print("x-Wert ist:")
-rr=requests.get("http://127.0.0.1:8000/getx/%s"%my_game_id)
-rr_json=rr.json()
-print(rr_json['x'])
-"""
 
 running=True
 printed=False
 gegner_print=False
+winner=False
+schon_geschossen = []
+
 while running:
+    over_r=requests.get("http://127.0.0.1:8000/get_over/%s"%my_game_id)
+    over_json=over_r.json()
+    over=over_json['over']
+    if over=="True":
+        break
+
     r=requests.get("http://127.0.0.1:8000/%s/turn" %my_game_id)
     r_json=r.json()
     turn=r_json['current_turn']
@@ -243,6 +245,39 @@ while running:
                 y=input("Eingabe muss ein Integer Wert sein")
 
 
+        tupel = (int(x),int(y))
+        while tupel in schon_geschossen:
+            print("Du hast schon diese Koordinaten eingegeben. Gebe eine neue Koordinate ein")
+            x=input("Wähle x-Koordinate: ")
+            while True:
+                try:
+                    int_x=int(x)
+                    while int_x<0 or int_x>9:
+                        x=input("Die x-Koordinate muss zwischen 0 und 9 liegen. Bitte wähle erneut: ")
+                        break
+                    break
+                except:
+                    x=input("Eingabe muss ein Integer Wert sein")
+
+            y=input("Wähle y-Koordinate: ")
+            while True:
+                try:
+                    int_y=int(y)
+                    while int_y<0 or int_y>9:
+                        y=input("Die y-Koordinate muss zwischen 0 und 9 liegen. Bitte wähle erneut: ")
+                        break
+                    break
+
+                except:
+                    y=input("Eingabe muss ein Integer Wert sein")
+
+            tupel = (int_x,int_y)
+
+
+        schon_geschossen.append((int(x),int(y)))
+        print(schon_geschossen)
+
+
         r=requests.get("http://127.0.0.1:8000/shoot/%s/%s/%s"%(gid,x,y))
         r_json= r.json()
         
@@ -250,15 +285,27 @@ while running:
             print("Volltreffer!")
             resp=requests.get("http://127.0.0.1:8000/array_by_id/%s"%gid)
             resp_j=resp.json()
-            print(resp_j['size'])
+            if resp_j['size']==0:
+                requests.get("http://127.0.0.1:8000/set_over/%s"%my_game_id)
+                winner=True
+                running=False
+            else:
+                print("Der Gegner hat noch: ", resp_j['size'], "Schiffe")
 
         else:
             print("leider daneben")
-            #turn auf gegner ändern
-        #requests an Koordinaten.size(), wenn 0, dann spiel vorbei
+            requests.get("http://127.0.0.1:8000/set_turn/%s"%my_game_id)
+           
         
 
     else:
         if not gegner_print:
             print("Der Gegner ist am Zug")
             gegner_print=True
+
+if winner:
+    print("Sieg! Sie haben alle gegnerischen Schiffe versenkt und die Schlacht gewonnen!")
+
+else:
+    print("Niederlage... Sie mussten sich nach einer glorreichen Schlacht geschlagen geben.")
+    requests.get("http://127.0.0.1:8000/erase_game/%s"%my_game_id)

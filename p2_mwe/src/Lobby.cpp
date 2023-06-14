@@ -19,15 +19,6 @@ namespace SchiffeVersenken{
         return x;
     }
 
-    bool Lobby::waiting(int id){
-        for(Spieler element:queue){
-            if(element.get_id()==id){
-                return true;
-            }
-        }
-        return false;
-    }  
-
     Spiel Lobby::spiel_erstellen(){
 
         if (game_ids.size()==0){
@@ -128,5 +119,20 @@ namespace SchiffeVersenken{
             }
         }
         return false;
+    }
+
+    void Lobby::edit_game(int id, Spiel a){
+        games.at(id)=a;
+    }
+
+    void Lobby::erase_game(int game_id){
+        Spieler s1=games.at(game_id).get_p1();
+        Spieler s2=games.at(game_id).get_p2();
+        games.erase(game_id);
+        playing.erase(s1.get_id());
+        playing.erase(s2.get_id());
+        arrays.erase(s1.get_id());
+        arrays.erase(s2.get_id());
+        game_ids.push_back(game_id);
     }
 }
