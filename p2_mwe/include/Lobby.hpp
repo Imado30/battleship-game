@@ -26,8 +26,6 @@ namespace SchiffeVersenken{
 
             Spiel game_by_id(int id);
 
-            void add_t(int x, int y, int gid, int sid); 
-
             void add_array(int x, int y, int id);
 
             int array_by_id(int id);
@@ -55,6 +53,5 @@ namespace SchiffeVersenken{
             int id_max;
             std::map<int, Spieler> playing;
             std::map<int, std::vector<std::tuple<int,int>>> arrays;
-
     };
 }

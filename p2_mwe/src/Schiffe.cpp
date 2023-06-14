@@ -41,39 +41,13 @@ namespace SchiffeVersenken
         return Koordinaten.size();
     }
 
-    bool Schiffe::hit(int x, int y)
-    {
-        std::tuple<int,int> koordinate(x,y);
-        for (int i = 0; i < Koordinaten.size(); i++)
-        {
-            if (Koordinaten[i] == koordinate)
-            {
-                Koordinaten.erase(Koordinaten.begin()+i);
-                return true;
-            }
-        }
-        return false;
-    }
-
     std::vector<std::tuple<int,int>> Schiffe::get_koordinaten()
     {
         return Koordinaten;
-    }
-
-    void Schiffe::tupel_erstellen(int x, int y)
-    {
-        std::tuple<int,int> tupel(x,y);
-        Koordinaten.push_back(tupel);
     }
 
     void Schiffe::koordinaten_löschen()
     {
         Koordinaten.clear();
     }
-
-    void Schiffe::set_koordinaten(std::vector<std::tuple<int,int>> in)
-    {
-        Koordinaten=in;
-    }
-
 }

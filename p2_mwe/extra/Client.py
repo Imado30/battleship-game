@@ -1,6 +1,9 @@
-#uvicorn server:rest_api --port 8000 --reload
+# uvicorn server:rest_api --port 8000 --reload
+# cmake -S . -B build && cmake --build build && cmake --install build
+# python3 -m uvicorn Server:rest_api --port 8000 --reload
+
 import requests
-from schiffeversenken import Schiffe
+from schiffeversenken import Schiffe, Spielbrett
 
 name=input("Gib deinen Namen ein: ")
 r=requests.get("http://127.0.0.1:8000/lobby/%s" %name)
@@ -42,8 +45,9 @@ r_json= r.json()
 gid = r_json["gid"]
 
 #Schiffe werden platziert
+sb = Spielbrett()
 s=Schiffe()
-Schiffgrößen=[2]
+Schiffgrößen=[2,3,4]
 
 def eingaben_loop(schiffgröße : int) -> list:
     print("Gebe die x-Koordinate an für die Schiffgröße: ", schiffgröße)
@@ -142,6 +146,7 @@ def eingabe_überprüfen(schiffgröße : int, x_koordinate : int, y_koordinate :
     return meine_Liste
 
 
+sb.druckeSpielbrett()
 
 while len(Schiffgrößen) != 0:
 
@@ -171,8 +176,10 @@ while len(Schiffgrößen) != 0:
 
                 Schiffgrößen.remove(int(schiffgröße))
                 s.koordinaten_einfügen(int(schiffgröße), int(x_koordinate), int(y_koordinate), richtung)
-                print(s.get_size())
-                print(s.get_koordinaten())
+
+                for i in s.get_koordinaten():
+                    sb.setzeSchiff(i)
+                sb.druckeSpielbrett()
             break
 
         except:
@@ -183,14 +190,9 @@ while len(Schiffgrößen) != 0:
 for i in s.get_koordinaten():
     x_koordinate = i[0]
     y_koordinate = i[1]
-    """requests.get("http://127.0.0.1:8000/t/%s/%s/%s"%(my_game_id, x_koordinate, y_koordinate))"""
     requests.get("http://127.0.0.1:8000/add_to_array/%s/%s/%s"%(my_id,x_koordinate,y_koordinate))
     rj=resp.json()
-    
-
-    t=requests.get("http://127.0.0.1:8000/test/%s"%my_game_id)
-    t_js=t.json()
-    print("Koordinate:", t_js['test'])
+ 
 
 
 resp=requests.get("http://127.0.0.1:8000/array_by_id/%s"%my_id)
@@ -202,8 +204,7 @@ running=True
 printed=False
 gegner_print=False
 winner=False
-schon_geschossen = []
-
+schon_geschossen=[]
 while running:
     over_r=requests.get("http://127.0.0.1:8000/get_over/%s"%my_game_id)
     over_json=over_r.json()
@@ -244,7 +245,6 @@ while running:
             except:
                 y=input("Eingabe muss ein Integer Wert sein")
 
-
         tupel = (int(x),int(y))
         while tupel in schon_geschossen:
             print("Du hast schon diese Koordinaten eingegeben. Gebe eine neue Koordinate ein")
@@ -276,6 +276,7 @@ while running:
 
         schon_geschossen.append((int(x),int(y)))
         print(schon_geschossen)
+
 
 
         r=requests.get("http://127.0.0.1:8000/shoot/%s/%s/%s"%(gid,x,y))

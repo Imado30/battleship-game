@@ -70,14 +70,6 @@ async def post_koordinaten(game: int, sid: int, x : int, y : int):
     return{"Status": "koordinaten empfangen"}
         
 
-@rest_api.get("/test/{game}")
-async def test(game: int):
-    spiel=lob.game_by_id(game)
-    x=spiel.get_p2().get_ship().get_koordinaten()
-    
-    intx=len(x)
-    return {"test": intx}
-
 @rest_api.get("/add_to_array/{sid}/{x}/{y}")
 async def add_to_array(sid: int, x: int, y: int):
     lob.add_array(x,y,sid)

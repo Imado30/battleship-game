@@ -13,12 +13,7 @@ namespace SchiffeVersenken{
         b.set_in_game(id);
         over=false;
     };
-   /* 
-    void Spiel::spielbretter_verbinden(){
-        spieler1.set_ene_sb(spieler2.get_own_sb());
-        spieler2.set_ene_sb(spieler1.get_own_sb());
-    }
-*/
+    
     int Spiel::get_turn(){                      //neu
         return turn;
     }
@@ -33,14 +28,6 @@ namespace SchiffeVersenken{
 
     Spieler Spiel::get_p2(){
         return spieler2;
-    }
-
-    void Spiel::add_tup1(int x, int y){
-        spieler1.add_tuple(x,y);
-    }
-
-    void Spiel::add_tup2(int x, int y){
-        spieler2.add_tuple(x,y);
     }
 
     void Spiel::set_turn(){

@@ -47,17 +47,6 @@ namespace SchiffeVersenken
         Feld[x][y] = s;
     }
 
-    bool SpielBrett::hit(int x, int y)
-    {
-
-        if (Feld[x][y] == "<" || ">")
-        {
-            return true;
-        }
-        else
-            return false;
-    }
-
     void SpielBrett::setzeSchiff(std::tuple<int,int> tupel)
     {
         int y = std::get<0>(tupel);

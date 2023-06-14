@@ -17,7 +17,6 @@ namespace SchiffeVersenken
 
         void druckeSpielbrett();
         void set_value(int x, int y, string s);
-        bool hit(int x, int y);
         void setzeSchiff(std::tuple<int,int> tupel);
     };
 }

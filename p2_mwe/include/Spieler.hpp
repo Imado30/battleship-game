@@ -22,10 +22,6 @@ namespace SchiffeVersenken{
 
         int get_in_game();
 
-        Schiffe get_ship();
-
-        void add_tuple(int x, int y);
-
         void set_gid(int id);
 
         int get_gid();
@@ -43,12 +39,9 @@ namespace SchiffeVersenken{
          * 
          */
         size_t id;
-        
-        Schiffe ship;
 
         int in_game;
 
         int gid;
     };
-
 }

@@ -617,9 +617,6 @@ CMakeFiles/demo1.dir/src/Schiffe.cpp.o: ../src/Schiffe.cpp \
   /usr/include/c++/11/bits/erase_if.h \
   /usr/include/c++/11/pstl/execution_defs.h
 
-CMakeFiles/demo1.dir/src/SchiffeOld.cpp.o: ../src/SchiffeOld.cpp \
-  /usr/include/stdc-predef.h
-
 CMakeFiles/demo1.dir/src/Spiel.cpp.o: ../src/Spiel.cpp \
   /usr/include/stdc-predef.h \
   ../include/Spiel.hpp \
@@ -1506,8 +1503,6 @@ CMakeFiles/demo1.dir/src/hangman_board.cpp.o: ../src/hangman_board.cpp \
 /usr/include/c++/11/bits/stl_relops.h:
 
 /usr/include/c++/11/bits/vector.tcc:
-
-../src/SchiffeOld.cpp:
 
 /usr/include/c++/11/bits/stl_bvector.h:
 

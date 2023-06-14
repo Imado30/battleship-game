@@ -5,8 +5,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/demo1.dir/src/Lobby.cpp.o.d"
   "CMakeFiles/demo1.dir/src/Schiffe.cpp.o"
   "CMakeFiles/demo1.dir/src/Schiffe.cpp.o.d"
-  "CMakeFiles/demo1.dir/src/SchiffeOld.cpp.o"
-  "CMakeFiles/demo1.dir/src/SchiffeOld.cpp.o.d"
   "CMakeFiles/demo1.dir/src/Spiel.cpp.o"
   "CMakeFiles/demo1.dir/src/Spiel.cpp.o.d"
   "CMakeFiles/demo1.dir/src/Spielbrett.cpp.o"
