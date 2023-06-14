@@ -28,6 +28,8 @@ PYBIND11_MODULE(schiffeversenken, m) {
         .def(py::init<>())
         .def("set_value", &SpielBrett::set_value)
         .def("druckeSpielbrett", &SpielBrett::druckeSpielbrett)
+        .def("set_hit", &SpielBrett::set_hit)
+        .def("set_miss", &SpielBrett::set_miss)
         .def("setzeSchiff", &SpielBrett::setzeSchiff);
 
     py::class_<Lobby>(m, "Lobby")

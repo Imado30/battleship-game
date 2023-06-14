@@ -53,4 +53,18 @@ namespace SchiffeVersenken
         int x = std::get<1>(tupel);
         set_value(x,y,"S");
     }
+
+    void SpielBrett::set_hit(std::tuple<int,int> tupel)
+    {
+        int y = std::get<0>(tupel);
+        int x = std::get<1>(tupel);
+        set_value(x,y,"X");
+    }
+
+    void SpielBrett::set_miss(std::tuple<int,int> tupel)
+    {
+        int y = std::get<0>(tupel);
+        int x = std::get<1>(tupel);
+        set_value(x,y,"O");
+    }
 }

@@ -47,7 +47,7 @@ gid = r_json["gid"]
 #Schiffe werden platziert
 sb = Spielbrett()
 s=Schiffe()
-Schiffgrößen=[2,3,4]
+Schiffgrößen=[2,3]
 
 def eingaben_loop(schiffgröße : int) -> list:
     print("Gebe die x-Koordinate an für die Schiffgröße: ", schiffgröße)
@@ -104,7 +104,7 @@ def eingabe_überprüfen(schiffgröße : int, x_koordinate : int, y_koordinate :
                         return eingabe_überprüfen(schiffgröße, x_koordinate1, y_koordinate1, richtung1)
                         
                         
-        if (int(x_koordinate) + int(schiffgröße)) > 9:
+        if (int(x_koordinate) + int(schiffgröße)) > 10:
             print("Du kannst das Schiff leider nicht horizontal platzieren, da das Schiff sonst das Spielfeld überschreitet. Gebe neue Koordinaten an", "\n")
             ergebnis_eingaben = eingaben_loop(schiffgröße)
             x_koordinate2 = ergebnis_eingaben[0]
@@ -133,7 +133,7 @@ def eingabe_überprüfen(schiffgröße : int, x_koordinate : int, y_koordinate :
                         return eingabe_überprüfen(schiffgröße, x_koordinate3, y_koordinate3, richtung3)
 
 
-        if (int(y_koordinate) + int(schiffgröße)) > 9:
+        if (int(y_koordinate) + int(schiffgröße)) > 10:
             print("Du kannst das Schiff leider nicht vertikal platzieren, da das Schiff sonst das Spielfeld überschreitet. Gebe neue Koordinaten an")
             ergebnis_eingaben = eingaben_loop(schiffgröße)
             x_koordinate4 = ergebnis_eingaben[0]
@@ -199,6 +199,9 @@ resp=requests.get("http://127.0.0.1:8000/array_by_id/%s"%my_id)
 resp_j=resp.json()
 print(resp_j['size'])
 
+
+sb_shoot = Spielbrett()
+sb_shoot.druckeSpielbrett()
 
 running=True
 printed=False
@@ -273,7 +276,7 @@ while running:
 
             tupel = (int_x,int_y)
 
-
+        hit_tupel = (int(x),int(y))
         schon_geschossen.append((int(x),int(y)))
         print(schon_geschossen)
 
@@ -284,6 +287,10 @@ while running:
         
         if r_json['Hit']=="Hit":
             print("Volltreffer!")
+
+            sb_shoot.set_hit(hit_tupel)
+            sb_shoot.druckeSpielbrett()
+
             resp=requests.get("http://127.0.0.1:8000/array_by_id/%s"%gid)
             resp_j=resp.json()
             if resp_j['size']==0:
@@ -296,8 +303,10 @@ while running:
         else:
             print("leider daneben")
             requests.get("http://127.0.0.1:8000/set_turn/%s"%my_game_id)
+            
+            sb_shoot.set_miss(hit_tupel)
+            sb_shoot.druckeSpielbrett()
            
-        
 
     else:
         if not gegner_print:
